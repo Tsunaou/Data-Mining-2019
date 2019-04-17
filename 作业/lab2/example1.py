@@ -99,7 +99,7 @@ def apriori(dataSet, minSupport=0.5):
     # C1 = createC1(
     #     dataSet)  # 将每个元素转会为frozenset字典    [frozenset({1}), frozenset({2}), frozenset({3}), frozenset({4}), frozenset({5})]
     fop = FileOption()
-    C1,D = fop.get_data('dataset/test.csv')
+    C1,D = fop.get_data('dataset/Groceries_test.csv')
     L1, supportData = scanD(D, C1, minSupport)  # 过滤数据
     L = [L1]
     k = 2
@@ -115,4 +115,6 @@ def apriori(dataSet, minSupport=0.5):
 dataSet = loadDataSet()
 L, suppData,D = apriori(dataSet)
 print(L)
-print(suppData)
+# print(suppData)
+for item in suppData:
+    print(item)

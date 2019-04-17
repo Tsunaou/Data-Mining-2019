@@ -41,6 +41,7 @@ class FileOption:
 
 if __name__ == '__main__':
     fop = FileOption()
-    # dataset = fop.get_data('dataset/Groceries_test.csv')
-    dataset,D = fop.get_data('dataset/test.csv')
+    # dataset,D = fop.get_data('dataset/Groceries_test.csv')
+    # dataset,D = fop.get_data('dataset/test.csv')
+    dataset,D = fop.get_data('dataset/Groceries.csv')
     print(dataset)
