@@ -20,7 +20,7 @@ class FileOption:
             lines = str(lines)
             # print("before:"+lines)
             lines = lines.strip('{}')  # 去除两端的符号
-            lines = lines.replace('/', ' ')  # 把斜杠转化为空格
+            # lines = lines.replace('/', ' ')  # 把斜杠转化为空格
             # print("after :"+lines)
             transaction = lines.split(',')
             self.D.append(transaction)

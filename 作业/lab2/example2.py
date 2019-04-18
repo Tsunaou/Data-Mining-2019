@@ -1,5 +1,5 @@
 from example1 import aprioriGen,loadDataSet,apriori
-
+import numpy
 # 获取关联规则的封装函数
 def generateRules(L, supportData, minConf=0.7):  # supportData 是一个字典
     bigRuleList = []
@@ -36,9 +36,9 @@ def rulesFromConseq(freqSet, H, supportData, brl, minConf=0.7):
         if (len(Hmp1) > 1):  # need at least two sets to merge
             rulesFromConseq(freqSet, Hmp1, supportData, brl, minConf)
 
-
-dataSet = loadDataSet()
-L, suppData = apriori(dataSet, minSupport=0.5)
-rules = generateRules(L, suppData, minConf=0.7)
-# rules = generateRules(L,suppData,minConf=0.5)
-print(rules)
+if __name__ == '__main__':
+    a = numpy.zeros((2,2))
+    dataSet = loadDataSet()
+    L, suppData = apriori(dataSet, minSupport=0.05)
+    rules = generateRules(L, suppData, minConf=0.05)
+    print(rules)
