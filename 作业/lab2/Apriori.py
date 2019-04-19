@@ -75,7 +75,7 @@ def aprioriGen(Lk, k):
             L1 = list(Lk[i])[0:k - 2]  # 将集合转为list后取值
             L2 = list(Lk[j])[0:k - 2]
             L1.sort()
-            L2.sort()  # 这里说明一下：该函数每次比较两个list的前k-2个元素，如果相同则求并集得到k个元素的集合
+            L2.sort()
             if L1 == L2:
                 res = Lk[i] | Lk[j]
                 retList.append(res)  # 求并集
@@ -97,6 +97,9 @@ def apriori(items,transactions, minSupport=0.5):
     return L, supportData
 
 def generateRules(L, supportData, minConf=0.7):  # supportData 是一个字典
+    """
+    返回 满足最小置信度的规则列表:bigRuleList
+    """
     bigRuleList = []
     for i in range(1, len(L)):  # 从为2个元素的集合开始
         for freqSet in L[i]:
@@ -110,11 +113,14 @@ def generateRules(L, supportData, minConf=0.7):  # supportData 是一个字典
     return bigRuleList
 
 
-# 对规则进行评估 获得满足最小可信度的关联规则
 def calcConf(freqSet, H, supportData, brl, minConf=0.7):
+    """
+    对规则进行评估
+    返回 满足最小可信度的关联规则:prunedH
+    """
     prunedH = []  # 创建一个新的列表去返回
     for conseq in H:
-        conf = supportData[freqSet] / supportData[freqSet - conseq]  # 计算置信度
+        conf = supportData.get(freqSet) / supportData.get(freqSet - conseq)
         if conf >= minConf:
             brl.append((freqSet - conseq, conseq, conf))
             prunedH.append(conseq)
@@ -123,7 +129,7 @@ def calcConf(freqSet, H, supportData, brl, minConf=0.7):
 
 # 生成候选规则集合
 def rulesFromConseq(freqSet, H, supportData, brl, minConf=0.7):
-    m = len(H[0])
+    m = H[0].__len__()
     if (len(freqSet) > (m + 1)):  # 尝试进一步合并
         Hmp1 = aprioriGen(H, m + 1)  # 将单个集合元素两两合并
         Hmp1 = calcConf(freqSet, Hmp1, supportData, brl, minConf)
