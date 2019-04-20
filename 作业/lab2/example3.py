@@ -1,4 +1,8 @@
-import numpy
+import Apriori
+import time
+from FileOption import  FileOption
+
+
 
 # 树节点用类来封装所有属性（以便解决复杂的数据存储问题）
 class treeNode:
@@ -19,25 +23,6 @@ class treeNode:
             child.disp(ind + 1)
 
 
-# 创建测试数据
-def loadSimpDat():
-    simpDat = [['r', 'z', 'h', 'j', 'p'],
-               ['z', 'y', 'x', 'w', 'v', 'u', 't', 's'],
-               ['z'],
-               ['r', 'x', 'n', 'o', 's'],
-               ['y', 'r', 'x', 'z', 'q', 't', 'p'],
-               ['y', 'z', 'x', 'e', 'q', 's', 't', 'm']]
-    return simpDat
-
-
-# 将记录数据转换为frozenset的字典并初始化为1，才能后续的树构造
-def createInitSet(dataSet):
-    retDict = {}
-    for trans in dataSet:
-        retDict[frozenset(trans)] = 1
-    return retDict
-
-
 # 创建树的主要封装函数
 def createTree(dataSet, minSup=1):  # 从数据集创建FP-tree但不挖掘
     headerTable = {}
@@ -45,8 +30,11 @@ def createTree(dataSet, minSup=1):  # 从数据集创建FP-tree但不挖掘
     # 第一次遍历数据集 计算所有元素的频率，返回字典样式
     for trans in dataSet:
         for item in trans:
-            headerTable[item] = headerTable.get(item, 0) + dataSet[
-                trans]  # get方法类似于[item]，直接取值，但是由于第一次取值为空，我们需要返回0，最为当前值，否则出错
+            if item in headerTable:
+                headerTable[item] = headerTable[item] + dataSet[trans]
+            else:
+                headerTable[item] = dataSet[trans]
+            # headerTable[item] = headerTable.get(item, 0) + dataSet[trans]  # get方法类似于[item]，直接取值，但是由于第一次取值为空，我们需要返回0，最为当前值，否则出错
 
     for k in list(headerTable.keys()):  # 循环所有的键，去除小于阈值的键值对
         if headerTable[k] < minSup:  # py3字典在遍历的时候不能更改，所以需要list(a.keys())
@@ -135,23 +123,26 @@ def mineTree(inTree, headerTable, minSup, preFix, freqItemList):
 
 if __name__ == '__main__':
 
-    # 检验以下树的创建
-    # rootNode = treeNode('pyramid', 9, None)  # 创建根节点
-    # rootNode.children['eye'] = treeNode('eye', 13, None)  # 创建子节点
-    # rootNode.children['phoenix'] = treeNode('phoenix', 3, None)
-    # rootNode.children['eye'].children['mm'] = treeNode('mm', 6, None)  # 创建子节点的子节点
-    # rootNode.disp()  # 画出树图
+    # simpDat = loadSimpDat()  # 前面两个函数仅为创建数据集用来测试
+    # initSet = createInitSet(simpDat)
+    output = []
+    for i in range(1):
+        fop = FileOption()
+        fop.clear_class()
+        initSet = fop.get_data_FP('dataset/Groceries.csv')
+        lencnt = 0
+        for k,v in initSet.items():
+            lencnt += v
+        minSup = lencnt * 0.05
+        myFPtree, myHeaderTable = createTree(initSet, minSup)  # FP树 头表
+        # myFPtree.disp()  # 画出FP树
+        # print(myHeaderTable)
+        # 某元素的条件模式基获取
 
-    simpDat = loadSimpDat()  # 前面两个函数仅为创建数据集用来测试
-    initSet = createInitSet(simpDat)
-    myFPtree, myHeaderTable = createTree(initSet, 3)  # FP树 头表
-    myFPtree.disp()  # 画出FP树
-    print(myHeaderTable)
-    # 某元素的条件模式基获取
-    print(findPrefixPath('x', myHeaderTable['x'][1]))
-    print(findPrefixPath('r', myHeaderTable['r'][1]))
 
-    # 创建条件FP树，并获得频繁项集
-    freqItems = []
-    mineTree(myFPtree, myHeaderTable, 3, set([]), freqItems)
-    print(freqItems)
+        # 创建条件FP树，并获得频繁项集
+        freqItems = []
+        mineTree(myFPtree, myHeaderTable, minSup, set([]), freqItems)
+        # print(freqItems)
+        output.append(freqItems.__len__())
+    print(output)

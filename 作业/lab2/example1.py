@@ -1,7 +1,7 @@
 from numpy import *
 import pandas as pd
 import numpy as np
-from Apriori import FileOption
+import FileOption
 
 # 构造数据
 def loadDataSet():
