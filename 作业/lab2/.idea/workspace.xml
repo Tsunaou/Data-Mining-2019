@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdc530f6-e894-4f61-9985-b0a4fd0bd19f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dataset/testfp.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Apriori.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apriori.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example3.py" beforeDir="false" afterPath="$PROJECT_DIR$/example3.py" afterDir="false" />
@@ -19,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/example3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="165" column="41" lean-forward="true" selection-start-line="165" selection-start-column="41" selection-end-line="165" selection-end-column="41" />
+            <state relative-caret-position="308">
+              <caret line="147" column="79" lean-forward="true" selection-start-line="147" selection-start-column="79" selection-end-line="147" selection-end-column="79" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -31,10 +30,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Apriori.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
+            <state relative-caret-position="549">
               <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
               <folding>
                 <element signature="e#1#12#0" expanded="true" />
@@ -61,6 +60,7 @@
       <find>bigL.len:</find>
       <find>myHead != None</find>
       <find>'</find>
+      <find>condSum</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -75,8 +75,8 @@
         <option value="$PROJECT_DIR$/FileOption.py" />
         <option value="$PROJECT_DIR$/dataset/test.csv" />
         <option value="$PROJECT_DIR$/dataset/testfp.csv" />
-        <option value="$PROJECT_DIR$/example3.py" />
         <option value="$PROJECT_DIR$/Apriori.py" />
+        <option value="$PROJECT_DIR$/example3.py" />
       </list>
     </option>
   </component>
@@ -304,7 +304,7 @@
       <workItem from="1555508426158" duration="4063000" />
       <workItem from="1555587325191" duration="6000" />
       <workItem from="1555765964582" duration="4208000" />
-      <workItem from="1555821192396" duration="11462000" />
+      <workItem from="1555821192396" duration="14627000" />
     </task>
     <task id="LOCAL-00001" summary="读取数据成功">
       <created>1555508639141</created>
@@ -327,11 +327,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555822950280</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fake的FP-growth 单项支持度完成">
+      <created>1555833180925</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1555833180925</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28533000" />
+    <option name="totallyTimeSpent" value="31698000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -352,7 +359,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.4688385" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.33002833" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -368,7 +375,8 @@
     <MESSAGE value="读取数据成功" />
     <MESSAGE value="Fake的FP-growth" />
     <MESSAGE value="Fake的FP-growth 改进准备" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fake的FP-growth 改进准备" />
+    <MESSAGE value="Fake的FP-growth 单项支持度完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fake的FP-growth 单项支持度完成" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Assignment2/Remarks on Code implementation.txt">
@@ -481,22 +489,22 @@
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example3.py">
+    <entry file="file://$PROJECT_DIR$/Apriori.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="165" column="41" lean-forward="true" selection-start-line="165" selection-start-column="41" selection-end-line="165" selection-end-column="41" />
+        <state relative-caret-position="549">
+          <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#1#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Apriori.py">
+    <entry file="file://$PROJECT_DIR$/example3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
+        <state relative-caret-position="308">
+          <caret line="147" column="79" lean-forward="true" selection-start-line="147" selection-start-column="79" selection-end-line="147" selection-end-column="79" />
           <folding>
-            <element signature="e#1#12#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>

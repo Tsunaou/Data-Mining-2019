@@ -116,6 +116,7 @@ def mineTree(inTree, headerTable, minSup, preFix, freqItemList,L_sum,supDict):
     print("bigL.len:",bigL.__len__())
     for basePat in bigL:  # 从头表的底部开始 ['r', 's', 't', 'y', 'x', 'z']
         newFreqSet = preFix.copy()
+        oldFreqSet = preFix.copy()
         print("oldPreqSet",newFreqSet)
         newFreqSet.add(basePat)  # 添加频繁元素到上一次的集合中
         print("newPreqSet",newFreqSet)
@@ -123,23 +124,36 @@ def mineTree(inTree, headerTable, minSup, preFix, freqItemList,L_sum,supDict):
 
         condPattBases = findPrefixPath(basePat, headerTable[basePat][1])  # 找到条件模式基（即前缀路径集合）
         print("前缀路径(条件模式基)：",condPattBases)
-        # 计算单项个数
-        if(newFreqSet.__len__() == 1):
+        # 用该元素的条件模式基来创建该元素条件FP树
+        myCondTree, myHead = createTree(condPattBases, minSup)  # 返回 条件FP树、头表
+
+        #计算支持度
+        if (newFreqSet.__len__() == 1): # 如果只是单项的话，直接得到
             condSum = headerTable[basePat][0]
-            # for k,v in condPattBases.items():
-            #     condSum += v
             if frozenset(newFreqSet) in supDict:
                 supDict[frozenset(newFreqSet)] = supDict[frozenset(newFreqSet)] + condSum
             else:
                 supDict[frozenset(newFreqSet)] = condSum
-        # 用该元素的条件模式基来创建该元素条件FP树
-        myCondTree, myHead = createTree(condPattBases, minSup)  # 返回 条件FP树、头表
+        else:  # 复数项
+            if myCondTree != None:
+                myCondTree.disp()
+                condSum = 0
+                for k,v in myCondTree.children.items():
+                    condSum += v.count
+                if frozenset(newFreqSet) in supDict:
+                    supDict[frozenset(newFreqSet)] = supDict[frozenset(newFreqSet)] + condSum
+                else:
+                    supDict[frozenset(newFreqSet)] = condSum
+            else:
+                supDict[frozenset(newFreqSet)] = supDict[frozenset(oldFreqSet)]
+
+
+
+        #-----
         f1 = False
         f2 = False
         if myCondTree != None:
             f1 = True
-            myCondTree.disp()
-        # print(myHead)
         if myHead != None:  # 继续挖掘FP树
             f2 = True
             print("myHead != None",myHead)
