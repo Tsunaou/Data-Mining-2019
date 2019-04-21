@@ -109,7 +109,7 @@ if __name__ == '__main__':
     # items, transactions = fop.get_data('dataset/testfp.csv')
     # items, transactions = fop.get_UNIX_data()
     minSupport = 0.02
-    minConf = 0.05
+    minConf = 0.02
     print("最小支持度为："+str(minSupport))
     print("最小置信度为："+str(minConf))
     print("Apriori 开始")
@@ -127,9 +127,22 @@ if __name__ == '__main__':
             print( str(its) + "->" + str(supportData.get(frozenset(its))))  # 输出每个频繁项集的支持度
     print("频繁项数为："+str(count))
     rules = generateRules(L, supportData, minConf=minConf)
-    print("一共有"+str(rules.__len__())+"条满足置信度的规则，如下所示")
+    # print("一共有"+str(rules.__len__())+"条满足置信度的规则，如下所示")
+    # for rule in rules:
+    #     print(str(rule[0])+"->"+str(rule[1])+":"+str(rule[2]))
+
+    newRule = []
     for rule in rules:
+        newRule.append((list(set(rule[0])),list(set(rule[1])),rule[2]))
+        # rule[0] = list(rule[0])
+        # rule[1] = list(rule[1])
+    print("一共有"+str(rules.__len__())+"条满足置信度的规则，如下所示")
+
+    newRule = sorted(newRule, key=lambda i: i[0])   # 排序后输出
+    for rule in newRule:
         print(str(rule[0])+"->"+str(rule[1])+":"+str(rule[2]))
+    # for rule in rules:
+    #     print(str(list(rule[0]))+"->"+str(list(rule[1]))+":"+str(rule[2]))
 
     end = time.time()
     print("运行时间：" + str(end - start) + "s")
