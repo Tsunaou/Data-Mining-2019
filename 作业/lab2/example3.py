@@ -36,22 +36,27 @@ def createTree(dataSet, minSup=1):  # 从数据集创建FP-tree但不挖掘
                 headerTable[item] = dataSet[trans]
             # headerTable[item] = headerTable.get(item, 0) + dataSet[trans]  # get方法类似于[item]，直接取值，但是由于第一次取值为空，我们需要返回0，最为当前值，否则出错
 
+    # 此时headerTable中记录的是每个item的频数num，此时若num < minSup，则必然不是频繁项集的元素
     for k in list(headerTable.keys()):  # 循环所有的键，去除小于阈值的键值对
         if headerTable[k] < minSup:  # py3字典在遍历的时候不能更改，所以需要list(a.keys())
             del (headerTable[k])
+
     freqItemSet = set(list(headerTable.keys()))
-    if len(freqItemSet) == 0:
+    if freqItemSet.__len__() == 0:
         return None, None  # 如果没有满足最小minSup的元素则退出
+
     for k in headerTable:  # 后面试试在前面的for中就构建好！！！
         headerTable[k] = [headerTable[k], None]  # 重新构造 headerTable （计数值，指向第一个元素项的指针）
+
     retTree = treeNode('Null Set', 1, None)  # 构建最初的空值树
+
     # 第二次遍历数据集 构建FP树（只考虑第一次判定的频繁项
     for tranSet, count in dataSet.items():
         localD = {}
         for item in tranSet:  # 为每条筛选后不为0的记录排序
             if item in freqItemSet:  # 如果所有频繁项中有该值
                 localD[item] = headerTable[item][0]
-        if len(localD) > 0:
+        if localD.__len__() > 0:
             # print(localD) #{'z': 5, 'r': 3}
             # 排序主要步骤：通过sorted方法排序，排序的值key=items获得字典的值的第二个值（即元素个数），reverse=True表示降序排序，最后通过列表中只保存元素，不保留个数
             orderedItems = [v[0] for v in sorted(localD.items(), key=lambda p: p[1], reverse=True)]  # ['z','r']
@@ -123,26 +128,22 @@ def mineTree(inTree, headerTable, minSup, preFix, freqItemList):
 
 if __name__ == '__main__':
 
-    # simpDat = loadSimpDat()  # 前面两个函数仅为创建数据集用来测试
-    # initSet = createInitSet(simpDat)
-    output = []
-    for i in range(1):
-        fop = FileOption()
-        fop.clear_class()
-        initSet = fop.get_data_FP('dataset/Groceries.csv')
-        lencnt = 0
-        for k,v in initSet.items():
-            lencnt += v
-        minSup = lencnt * 0.05
-        myFPtree, myHeaderTable = createTree(initSet, minSup)  # FP树 头表
-        # myFPtree.disp()  # 画出FP树
-        # print(myHeaderTable)
-        # 某元素的条件模式基获取
+    start = time.time()  # 计算程序运行时间
 
+    fop = FileOption()
+    fop.clear_class()
+    initSet = fop.get_data_FP('dataset/Groceries.csv')
+    lencnt = 0
+    for k,v in initSet.items():
+        lencnt += v
+    minSup = lencnt * 0.05
+    myFPtree, myHeaderTable = createTree(initSet, minSup)  # FP树 头表
 
-        # 创建条件FP树，并获得频繁项集
-        freqItems = []
-        mineTree(myFPtree, myHeaderTable, minSup, set([]), freqItems)
-        # print(freqItems)
-        output.append(freqItems.__len__())
-    print(output)
+    # 创建条件FP树，并获得频繁项集
+    freqItems = []
+    mineTree(myFPtree, myHeaderTable, minSup, set([]), freqItems)
+    print(freqItems)
+    end = time.time()
+    print("频繁项集个数为："+str(freqItems.__len__()))
+    print("运行时间：" + str(end - start) + "s")
+

@@ -107,7 +107,7 @@ if __name__ == '__main__':
     fop = FileOption()
     items, transactions = fop.get_data('dataset/Groceries.csv')
     # items, transactions = fop.get_UNIX_data()
-    minSupport = 0.05
+    minSupport = 0.02
     minConf = 0.05
     print("最小支持度为："+str(minSupport))
     print("最小置信度为："+str(minConf))
