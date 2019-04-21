@@ -91,3 +91,15 @@ class FileOption:
                 retDict[frozenset(trans)] = 1
         print("重复个数："+str(count))
         return retDict
+
+    def get_data_FP_new(self,filename):
+        self.get_frozenset(filename=filename)
+        retDict = []
+        count = 0
+        for trans in self.transactions:
+            newSet = []
+            for items in trans:
+                newSet.append(items)
+            retDict.append(newSet)
+
+        return retDict

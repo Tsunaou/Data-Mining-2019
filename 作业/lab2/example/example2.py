@@ -1,4 +1,4 @@
-from example1 import aprioriGen,loadDataSet,apriori
+from example.example1 import aprioriGen,loadDataSet,apriori
 import numpy
 # 获取关联规则的封装函数
 def generateRules(L, supportData, minConf=0.7):  # supportData 是一个字典

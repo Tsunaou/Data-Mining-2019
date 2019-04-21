@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdc530f6-e894-4f61-9985-b0a4fd0bd19f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/fp_growth_py3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Apriori.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apriori.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example3.py" beforeDir="false" afterPath="$PROJECT_DIR$/example3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FP-growth.py" beforeDir="false" afterPath="$PROJECT_DIR$/FP-growth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileOption.py" beforeDir="false" afterPath="$PROJECT_DIR$/FileOption.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example1.py" beforeDir="false" afterPath="$PROJECT_DIR$/example/example1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example2.py" beforeDir="false" afterPath="$PROJECT_DIR$/example/example2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example3.py" beforeDir="false" afterPath="$PROJECT_DIR$/example/example3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_shelldata.py" beforeDir="false" afterPath="$PROJECT_DIR$/example/get_shelldata.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,24 +25,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/example3.py">
+        <entry file="file://$PROJECT_DIR$/Apriori.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="147" column="79" lean-forward="true" selection-start-line="147" selection-start-column="79" selection-end-line="147" selection-end-column="79" />
+            <state relative-caret-position="151">
+              <caret line="124" column="26" lean-forward="true" selection-start-line="124" selection-start-column="26" selection-end-line="124" selection-end-column="26" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#1#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Apriori.py">
+        <entry file="file://$PROJECT_DIR$/FP-growth.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
+            <state relative-caret-position="166">
+              <caret line="35" column="30" lean-forward="true" selection-start-line="35" selection-end-line="36" />
               <folding>
-                <element signature="e#1#12#0" expanded="true" />
+                <element signature="e#81#108#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,11 +78,12 @@
         <option value="$PROJECT_DIR$/dataset/Groceries_test.csv" />
         <option value="$PROJECT_DIR$/example2.py" />
         <option value="$PROJECT_DIR$/example1.py" />
-        <option value="$PROJECT_DIR$/FileOption.py" />
         <option value="$PROJECT_DIR$/dataset/test.csv" />
         <option value="$PROJECT_DIR$/dataset/testfp.csv" />
-        <option value="$PROJECT_DIR$/Apriori.py" />
         <option value="$PROJECT_DIR$/example3.py" />
+        <option value="$PROJECT_DIR$/FileOption.py" />
+        <option value="$PROJECT_DIR$/FP-growth.py" />
+        <option value="$PROJECT_DIR$/Apriori.py" />
       </list>
     </option>
   </component>
@@ -100,29 +107,6 @@
               <item name="lab2" type="b2602c69:ProjectViewProjectNode" />
               <item name="lab2" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="lab2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lab2" type="462c0819:PsiDirectoryNode" />
-              <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lab2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lab2" type="462c0819:PsiDirectoryNode" />
-              <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
-              <item name="dataset" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lab2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lab2" type="462c0819:PsiDirectoryNode" />
-              <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
-              <item name="dataset" type="462c0819:PsiDirectoryNode" />
-              <item name="GroceryStore" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lab2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lab2" type="462c0819:PsiDirectoryNode" />
-              <item name="dataset" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -131,12 +115,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Prepare/Ouyang/python3-fp-growth" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\大三下\数据挖掘\作业\lab2\example" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\大三下\数据挖掘\作业\lab2" />
       <recent name="E:\大三下\数据挖掘\作业\lab2\dataset" />
     </key>
   </component>
@@ -152,7 +140,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.example3">
+  <component name="RunManager" selected="Python.Apriori">
     <configuration name="Apriori" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -164,6 +152,25 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Apriori.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FP-growth" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="lab2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/FP-growth.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -216,28 +223,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="example1" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="lab2" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/example1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="example2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="lab2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -251,7 +236,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/example2.py" />
+      <option name="SCRIPT_NAME" value="E:\大三下\数据挖掘\作业\lab2\example\example2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -270,7 +255,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/example3.py" />
+      <option name="SCRIPT_NAME" value="E:\大三下\数据挖掘\作业\lab2\example\example3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -281,11 +266,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.example3" />
         <item itemvalue="Python.Apriori" />
+        <item itemvalue="Python.FP-growth" />
+        <item itemvalue="Python.example3" />
         <item itemvalue="Python.FileOption" />
         <item itemvalue="Python.example2" />
-        <item itemvalue="Python.example1" />
       </list>
     </recent_temporary>
   </component>
@@ -304,7 +289,7 @@
       <workItem from="1555508426158" duration="4063000" />
       <workItem from="1555587325191" duration="6000" />
       <workItem from="1555765964582" duration="4208000" />
-      <workItem from="1555821192396" duration="14627000" />
+      <workItem from="1555821192396" duration="19546000" />
     </task>
     <task id="LOCAL-00001" summary="读取数据成功">
       <created>1555508639141</created>
@@ -334,15 +319,21 @@
       <option name="project" value="LOCAL" />
       <updated>1555833180925</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fake的FP-growth 单项支持度完成 复数项支持度失败">
+      <created>1555836390351</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1555836390352</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31698000" />
+    <option name="totallyTimeSpent" value="36617000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17962466" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -359,7 +350,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.33002833" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.46175638" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -376,7 +367,8 @@
     <MESSAGE value="Fake的FP-growth" />
     <MESSAGE value="Fake的FP-growth 改进准备" />
     <MESSAGE value="Fake的FP-growth 单项支持度完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fake的FP-growth 单项支持度完成" />
+    <MESSAGE value="Fake的FP-growth 单项支持度完成 复数项支持度失败" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fake的FP-growth 单项支持度完成 复数项支持度失败" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Assignment2/Remarks on Code implementation.txt">
@@ -420,20 +412,7 @@
     <entry file="file://$PROJECT_DIR$/Assignment2/dataset/GroceryStore/ReadMe.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/example2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FP-growth.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example1.py">
+    <entry file="file://$PROJECT_DIR$/example/example1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-end-line="4" />
@@ -463,16 +442,6 @@
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FileOption.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="86" column="39" selection-start-line="86" selection-start-column="34" selection-end-line="86" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataset/testfp.csv">
       <provider selected="true" editor-type-id="csv-text-editor">
         <state relative-caret-position="132">
@@ -489,22 +458,67 @@
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Apriori.py">
+    <entry file="file://$PROJECT_DIR$/example/example2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
+        <state relative-caret-position="319">
+          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
           <folding>
-            <element signature="e#1#12#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example3.py">
+    <entry file="file://$PROJECT_DIR$/fp_growth_py3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="147" column="79" lean-forward="true" selection-start-line="147" selection-start-column="79" selection-end-line="147" selection-end-column="79" />
+        <state relative-caret-position="-264" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/get_shelldata.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FileOption.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="104" column="22" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/example3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="178" column="53" selection-start-line="178" selection-start-column="30" selection-end-line="178" selection-end-column="53" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FP-growth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="35" column="30" lean-forward="true" selection-start-line="35" selection-end-line="36" />
+          <folding>
+            <element signature="e#81#108#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Apriori.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="124" column="26" lean-forward="true" selection-start-line="124" selection-start-column="26" selection-end-line="124" selection-end-column="26" />
+          <folding>
+            <element signature="e#1#12#0" expanded="true" />
           </folding>
         </state>
       </provider>

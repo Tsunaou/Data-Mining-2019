@@ -108,7 +108,7 @@ if __name__ == '__main__':
     items, transactions = fop.get_data('dataset/Groceries.csv')
     # items, transactions = fop.get_data('dataset/testfp.csv')
     # items, transactions = fop.get_UNIX_data()
-    minSupport = 0.05
+    minSupport = 0.02
     minConf = 0.05
     print("最小支持度为："+str(minSupport))
     print("最小置信度为："+str(minConf))
@@ -118,8 +118,13 @@ if __name__ == '__main__':
     count = 0  # 频繁项集数
     for Li in L:
         count += Li.__len__()
-        for its in Li:
-            print( str(its) + "->" + str(supportData.get(its)))  # 输出每个频繁项集的支持度
+        Llist = []
+        for items in Li:
+            Llist.append(list(set(items)))
+        result = sorted(Llist, key=lambda i: i[0])  # 排序后输出
+        for its in result:
+            # print( str(list(set(its))) + "->" + str(supportData.get(its)))  # 输出每个频繁项集的支持度
+            print( str(its) + "->" + str(supportData.get(frozenset(its))))  # 输出每个频繁项集的支持度
     print("频繁项数为："+str(count))
     rules = generateRules(L, supportData, minConf=minConf)
     print("一共有"+str(rules.__len__())+"条满足置信度的规则，如下所示")
