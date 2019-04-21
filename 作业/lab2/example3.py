@@ -34,7 +34,6 @@ def createTree(dataSet, minSup=1):  # 从数据集创建FP-tree但不挖掘
                 headerTable[item] = headerTable[item] + dataSet[trans]
             else:
                 headerTable[item] = dataSet[trans]
-            # headerTable[item] = headerTable.get(item, 0) + dataSet[trans]  # get方法类似于[item]，直接取值，但是由于第一次取值为空，我们需要返回0，最为当前值，否则出错
 
     # 此时headerTable中记录的是每个item的频数num，此时若num < minSup，则必然不是频繁项集的元素
     for k in list(headerTable.keys()):  # 循环所有的键，去除小于阈值的键值对
@@ -106,20 +105,51 @@ def findPrefixPath(basePat, treeNode):  # treeNode comes from header table
 
 
 # 创建条件树  第一个参数意义不大     最小阈值  {}集合      []列表
-def mineTree(inTree, headerTable, minSup, preFix, freqItemList):
+def mineTree(inTree, headerTable, minSup, preFix, freqItemList,L_sum,supDict):
     # 错误代码说明：p是：('r', [3, <__main__.treeNode object at 0x000002251A5F4BA8>])  p[1]是：[3, <__main__.treeNode object at 0x000002251A5F4BA8>]
     # 所以还需要对p[1]取[0]，得到key=3，用计数值排序而不是树结构排序
     bigL = [v[0] for v in sorted(headerTable.items(), key=lambda p: p[1][0])]  # 头表排序，只取键'r'
+    print("------------------------------------")
+    print("bigL:",bigL)
+    L_sum[0] = L_sum[0] + bigL.__len__()
+    print("L_sum=",bigL.__len__())
+    print("bigL.len:",bigL.__len__())
     for basePat in bigL:  # 从头表的底部开始 ['r', 's', 't', 'y', 'x', 'z']
         newFreqSet = preFix.copy()
+        print("oldPreqSet",newFreqSet)
         newFreqSet.add(basePat)  # 添加频繁元素到上一次的集合中
-        # print(newFreqSet)
+        print("newPreqSet",newFreqSet)
         freqItemList.append(newFreqSet)  # 这个列表用来保存所有的频繁项集
+
         condPattBases = findPrefixPath(basePat, headerTable[basePat][1])  # 找到条件模式基（即前缀路径集合）
+        print("前缀路径(条件模式基)：",condPattBases)
+        # 计算单项个数
+        if(newFreqSet.__len__() == 1):
+            condSum = headerTable[basePat][0]
+            # for k,v in condPattBases.items():
+            #     condSum += v
+            if frozenset(newFreqSet) in supDict:
+                supDict[frozenset(newFreqSet)] = supDict[frozenset(newFreqSet)] + condSum
+            else:
+                supDict[frozenset(newFreqSet)] = condSum
         # 用该元素的条件模式基来创建该元素条件FP树
         myCondTree, myHead = createTree(condPattBases, minSup)  # 返回 条件FP树、头表
+        f1 = False
+        f2 = False
+        if myCondTree != None:
+            f1 = True
+            myCondTree.disp()
+        # print(myHead)
         if myHead != None:  # 继续挖掘FP树
-            mineTree(myCondTree, myHead, minSup, newFreqSet, freqItemList)
+            f2 = True
+            print("myHead != None",myHead)
+            mineTree(myCondTree, myHead, minSup, newFreqSet, freqItemList,L_sum,supDict)
+        else:
+            print("myHead == None")
+        if(f1^f2):
+            print("f1 xor f2:",f1^f2 )
+            assert (0)
+        print("-------")
 
 
 
@@ -133,17 +163,26 @@ if __name__ == '__main__':
     fop = FileOption()
     fop.clear_class()
     initSet = fop.get_data_FP('dataset/Groceries.csv')
+    # initSet = fop.get_data_FP('dataset/testfp.csv')
     lencnt = 0
     for k,v in initSet.items():
         lencnt += v
     minSup = lencnt * 0.05
     myFPtree, myHeaderTable = createTree(initSet, minSup)  # FP树 头表
 
+    myFPtree.disp()
+
+
     # 创建条件FP树，并获得频繁项集
     freqItems = []
-    mineTree(myFPtree, myHeaderTable, minSup, set([]), freqItems)
+    L_sum = []
+    L_sum.append(0)
+    supDict = {}
+    mineTree(myFPtree, myHeaderTable, minSup, set([]), freqItems,L_sum,supDict)
     print(freqItems)
     end = time.time()
     print("频繁项集个数为："+str(freqItems.__len__()))
+    for k,v in supDict.items():
+        print(k,"->",v/lencnt)
     print("运行时间：" + str(end - start) + "s")
 
