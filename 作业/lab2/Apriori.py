@@ -130,7 +130,7 @@ def getApriori(datatype=0,minSup=0.5,minConf=0.7,getFreqitems=True,getRules=Fals
     elif datatype == 1:
         items, transactions = fop.get_UNIX_data()
     elif datatype == 2:
-        items, transactions = fop.get_data('dataset/testbf.csv')
+        items, transactions = fop.get_data('dataset/bftest.csv')
     else:
         print("数据集类型出错")
         return

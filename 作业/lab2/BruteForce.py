@@ -9,6 +9,7 @@ def PowerSetsBinary(items):
         for j in range(N):
             if(i >> j ) % 2 == 1:
                 combo = combo.union(items[j])
+                # print("i=",i,"j=",j)
         if combo.__len__()!= 0:
             retSubset.append(combo)
     return retSubset
@@ -30,7 +31,7 @@ def getBrute(datatype=0,minSup=0.5,minConf=0.7,getFreqitems=True,getRules=False)
     elif datatype == 1:
         items, transactions = fop.get_UNIX_data()
     elif datatype == 2:
-        items, transactions = fop.get_data('dataset/testbf.csv')
+        items, transactions = fop.get_data('dataset/bftest.csv')
     else:
         print("数据集类型出错")
         return
@@ -69,8 +70,8 @@ if __name__ == '__main__':
 
     fop = FileOption()
     # items, transactions = fop.get_data('dataset/Groceries_test.csv')
-    items, transactions = fop.get_data('dataset/testbf.csv')
-    # items, transactions = fop.get_data('dataset/test.csv')
+    items, transactions = fop.get_data('dataset/bftest.csv')
+    # items, transactions = fop.get_data('dataset/bftest.csv')
 
     minSup = 0.05 * transactions.__len__()
     minConf = 0.05

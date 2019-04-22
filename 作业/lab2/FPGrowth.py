@@ -39,7 +39,7 @@ def getFPGrowth(datatype=0,minSup=0.5,minConf=0.7,getFreqitems=True,getRules=Fal
     elif datatype == 1:
         dataset = fop.get_data_FP_UNIX()
     elif datatype == 2:
-        dataset = fop.get_data_FP_new('dataset/testbf.csv')
+        dataset = fop.get_data_FP_new('dataset/bftest.csv')
     else:
         print("数据集类型出错")
         return
