@@ -177,7 +177,7 @@ if __name__ == '__main__':
     fop = FileOption()
     fop.clear_class()
     initSet = fop.get_data_FP('dataset/Groceries.csv')
-    # initSet = fop.get_data_FP('dataset/testfp.csv')
+    # initSet = fop.get_data_FP('dataset/testbf.csv')
     lencnt = 0
     for k,v in initSet.items():
         lencnt += v
