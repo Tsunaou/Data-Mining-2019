@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bdc530f6-e894-4f61-9985-b0a4fd0bd19f" name="Default Changelist" comment="发现了BUG">
+    <list default="true" id="bdc530f6-e894-4f61-9985-b0a4fd0bd19f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apriori.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apriori.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FPGrowth.py" beforeDir="false" afterPath="$PROJECT_DIR$/FPGrowth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/freqItems.py" beforeDir="false" afterPath="$PROJECT_DIR$/freqItems.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Apriori.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="76" column="40" lean-forward="true" selection-start-line="76" selection-start-column="40" selection-end-line="76" selection-end-column="40" />
+            <state relative-caret-position="242">
+              <caret line="50" column="7" lean-forward="true" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#3428#4843#0" />
@@ -48,8 +47,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fp_growth_py3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
+            <state relative-caret-position="154">
               <caret line="34" selection-start-line="34" selection-end-line="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/freqItems.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dataset/bftest.csv">
+          <provider editor-type-id="csv-table-editor">
+            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+          </provider>
+          <provider selected="true" editor-type-id="csv-text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -98,16 +121,16 @@
         <option value="$PROJECT_DIR$/Brute-Force.py" />
         <option value="$PROJECT_DIR$/BruteForce.py" />
         <option value="$PROJECT_DIR$/dataset/bftest.csv" />
-        <option value="$PROJECT_DIR$/freqItems.py" />
         <option value="$PROJECT_DIR$/FileOption.py" />
         <option value="$PROJECT_DIR$/fp_growth_py3.py" />
         <option value="$PROJECT_DIR$/FPGrowth.py" />
         <option value="$PROJECT_DIR$/Apriori.py" />
+        <option value="$PROJECT_DIR$/freqItems.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="952" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
   </component>
@@ -295,8 +318,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.freqItems" />
-        <item itemvalue="Python.FPGrowth" />
         <item itemvalue="Python.Apriori" />
+        <item itemvalue="Python.FPGrowth" />
         <item itemvalue="Python.BruteForce" />
         <item itemvalue="Python.memory_test" />
       </list>
@@ -324,7 +347,7 @@
       <workItem from="1555934176037" duration="4101000" />
       <workItem from="1555938290319" duration="2153000" />
       <workItem from="1555940448010" duration="489000" />
-      <workItem from="1555941426406" duration="380000" />
+      <workItem from="1555941426406" duration="1448000" />
     </task>
     <task id="LOCAL-00001" summary="读取数据成功">
       <created>1555508639141</created>
@@ -431,17 +454,30 @@
       <option name="project" value="LOCAL" />
       <updated>1555939662072</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="发现了规则计算的一处BUG">
+      <created>1555941910533</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1555941910533</updated>
+    </task>
+    <task id="LOCAL-00017" summary="BUG修复成功">
+      <created>1555942085868</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1555942085868</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61031000" />
+    <option name="totallyTimeSpent" value="62099000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1802949" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23927614" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -456,7 +492,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.4206799" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.43767706" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -507,7 +543,9 @@
     <MESSAGE value="整合成功，准备提交" />
     <MESSAGE value="修改了BF数据集" />
     <MESSAGE value="发现了BUG" />
-    <option name="LAST_COMMIT_MESSAGE" value="发现了BUG" />
+    <MESSAGE value="发现了规则计算的一处BUG" />
+    <MESSAGE value="BUG修复成功" />
+    <option name="LAST_COMMIT_MESSAGE" value="BUG修复成功" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Assignment2/Remarks on Code implementation.txt">
@@ -660,16 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataset/bftest.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BruteForce.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-176">
@@ -680,19 +708,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/freqItems.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fp_growth_py3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
+        <state relative-caret-position="154">
           <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
@@ -710,11 +728,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Apriori.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="76" column="40" lean-forward="true" selection-start-line="76" selection-start-column="40" selection-end-line="76" selection-end-column="40" />
+        <state relative-caret-position="242">
+          <caret line="50" column="7" lean-forward="true" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <element signature="e#3428#4843#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataset/bftest.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/freqItems.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
