@@ -73,7 +73,13 @@ def generateRules(L, supportData, minConf=0.7):  # supportData 是一个字典
                 rulesFromConseq(freqSet, H1, supportData, bigRuleList, minConf)  # 集合元素 集合拆分后的列表 。。。
             else:
                 calcConf(freqSet, H1, supportData, bigRuleList, minConf)
-    return bigRuleList
+    # 对生成的rule排序
+    newRule = []
+    for rule in bigRuleList:
+        newRule.append((list(set(rule[0])),list(set(rule[1])),rule[2]))
+    newRule = sorted(newRule, key=lambda i: i[0])   # 排序后输出
+
+    return newRule
 
 
 def calcConf(freqSet, H, supportData, brl, minConf=0.7):
@@ -107,6 +113,7 @@ if __name__ == '__main__':
     items, transactions = fop.get_data('dataset/Groceries.csv')
     # items, transactions = fop.get_data('dataset/testfp.csv')
     # items, transactions = fop.get_UNIX_data()
+
     minSupport = 0.02
     minConf = 0.02
     print("最小支持度为："+str(minSupport))
@@ -122,26 +129,15 @@ if __name__ == '__main__':
             Llist.append(list(set(items)))
         result = sorted(Llist, key=lambda i: i[0])  # 排序后输出
         for its in result:
-            # print( str(list(set(its))) + "->" + str(supportData.get(its)))  # 输出每个频繁项集的支持度
             print( str(its) + "->" + str(supportData.get(frozenset(its))))  # 输出每个频繁项集的支持度
     print("频繁项数为："+str(count))
-    rules = generateRules(L, supportData, minConf=minConf)
-    # print("一共有"+str(rules.__len__())+"条满足置信度的规则，如下所示")
-    # for rule in rules:
-    #     print(str(rule[0])+"->"+str(rule[1])+":"+str(rule[2]))
 
-    newRule = []
-    for rule in rules:
-        newRule.append((list(set(rule[0])),list(set(rule[1])),rule[2]))
-        # rule[0] = list(rule[0])
-        # rule[1] = list(rule[1])
+    rules = generateRules(L, supportData, minConf=minConf)
+
     print("一共有"+str(rules.__len__())+"条满足置信度的规则，如下所示")
 
-    newRule = sorted(newRule, key=lambda i: i[0])   # 排序后输出
-    for rule in newRule:
+    for rule in rules:
         print(str(rule[0])+"->"+str(rule[1])+":"+str(rule[2]))
-    # for rule in rules:
-    #     print(str(list(rule[0]))+"->"+str(list(rule[1]))+":"+str(rule[2]))
 
     end = time.time()
     print("运行时间：" + str(end - start) + "s")
