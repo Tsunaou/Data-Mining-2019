@@ -1,11 +1,7 @@
-# python3
-# -*- coding: utf-8 -*-
-# @Author  : lina
-# @Time    : 2018/5/13 11:40
-import fp_growth_py3 as fpg
-import time
+from fp_growth_py3 import find_frequent_itemsets
 from FileOption import  FileOption
 from Apriori import generateRules
+import time
 
 
 def FP_rule_adapter(result):
@@ -29,21 +25,16 @@ def FP_rule_adapter(result):
 
 if __name__ == '__main__':
 
-    '''
-    调用find_frequent_itemsets()生成频繁项
-    @:param minimum_support表示设置的最小支持度，即若支持度大于等于inimum_support，保存此频繁项，否则删除
-    @:param include_support表示返回结果是否包含支持度，若include_support=True，返回结果中包含itemset和support，否则只返回itemset
-    '''
-
     start = time.time()  # 计算程序运行时间
 
     fop = FileOption()
-    # dataset= fop.get_data_FP_new('dataset/Groceries_test.csv')
-    dataset= fop.get_data_FP_new('dataset/testfp.csv')
-    minSup = dataset.__len__() * 0.05
-    minConf = 0.05
+    # dataset= fop.get_data_FP_new('dataset/Groceries.csv')
+    # dataset= fop.get_data_FP_new('dataset/testfp.csv')
+    dataset = fop.get_data_FP_UNIX()
+    minSup = dataset.__len__() * 0.01
+    minConf = 0.01
 
-    frequent_itemsets = fpg.find_frequent_itemsets(dataset, minimum_support=minSup, include_support=True)
+    frequent_itemsets = find_frequent_itemsets(dataset, minSup=minSup)
     print(type(frequent_itemsets))   # print type
 
     result = []
@@ -63,6 +54,9 @@ if __name__ == '__main__':
         print(str(rule[0])+"->"+str(rule[1])+":"+str(rule[2]))
 
     end = time.time()
+    print("频繁项集个数",result.__len__())
+    print("挖掘到规则数",rules.__len__())
+
     print("运行时间：" + str(end - start) + "s")
 
 

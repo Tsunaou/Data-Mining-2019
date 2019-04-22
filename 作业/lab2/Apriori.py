@@ -110,12 +110,12 @@ if __name__ == '__main__':
     start = time.time()  # 计算程序运行时间
 
     fop = FileOption()
-    items, transactions = fop.get_data('dataset/Groceries.csv')
+    # items, transactions = fop.get_data('dataset/Groceries.csv')
     # items, transactions = fop.get_data('dataset/testfp.csv')
-    # items, transactions = fop.get_UNIX_data()
+    items, transactions = fop.get_UNIX_data()
 
-    minSupport = 0.02
-    minConf = 0.02
+    minSupport = 0.2
+    minConf = 0.2
     print("最小支持度为："+str(minSupport))
     print("最小置信度为："+str(minConf))
     print("Apriori 开始")
@@ -138,6 +138,9 @@ if __name__ == '__main__':
 
     for rule in rules:
         print(str(rule[0])+"->"+str(rule[1])+":"+str(rule[2]))
+
+    print("频繁项数为："+str(count))
+    print("一共有"+str(rules.__len__())+"条满足置信度的规则，如下所示")
 
     end = time.time()
     print("运行时间：" + str(end - start) + "s")

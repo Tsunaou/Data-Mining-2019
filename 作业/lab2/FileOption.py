@@ -66,7 +66,12 @@ class FileOption:
                             out.append([item])
                     transaction = []
                 else:
-                    transaction.append(t)
+                    cle = t.strip('<>')  # 去除两端的符号
+                    if cle.isdigit():
+                        # print(t)
+                        continue
+                    else:
+                        transaction.append(t)
 
         out.sort()
         self.transactions = list(map(set, self.transactions))
@@ -90,6 +95,18 @@ class FileOption:
             else:
                 retDict[frozenset(trans)] = 1
         print("重复个数："+str(count))
+        return retDict
+
+    def get_data_FP_UNIX(self):
+        a,b = self.get_UNIX_data()
+        retDict = []
+        count = 0
+        for trans in self.transactions:
+            newSet = []
+            for items in trans:
+                newSet.append(items)
+            retDict.append(newSet)
+
         return retDict
 
     def get_data_FP_new(self,filename):
