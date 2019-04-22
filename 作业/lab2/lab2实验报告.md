@@ -600,7 +600,22 @@ def getBrute(datatype=0,minSup=0.5,minConf=0.7,getFreqitems=True,getRules=False)
 
 ### 4.3 实验结果和数据
 
+分别更改最小值支持度minSup和最小值置信度minConf，得到如下实验对比结果：
 
+#### (1) Grocery Store 数据集
+
+|           | minSup | minConf | 频繁项集数 | 规则数 | 时间 | 内存 |
+| --------- | ------ | ------- | ---------- | ------ | ---- | ---- |
+| Apriori   | 0.05   | 0.05    |            |        |      |      |
+| FP-Growth |        |         |            |        |      |      |
+| Apriori   | 0.1    | 0.05    |            |        |      |      |
+| FP-Growth |        |         |            |        |      |      |
+| Apriori   | 0.05   | 0.10    |            |        |      |      |
+| FP-Growth |        |         |            |        |      |      |
+| Apriori   | 0.3    | 0.05    |            |        |      |      |
+| FP-Growth |        |         |            |        |      |      |
+| Apriori   | 0.5    | 0.10    |            |        |      |      |
+| FP-Growth |        |         |            |        |      |      |
 
 
 

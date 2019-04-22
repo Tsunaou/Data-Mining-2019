@@ -154,15 +154,17 @@ def getApriori(datatype=0,minSup=0.5,minConf=0.7,getFreqitems=True,getRules=Fals
                 print(str(its) + "->" + str(supportData.get(frozenset(its))))  # 输出每个频繁项集的支持度
     print("频繁项数为："+str(count))
 
-    rules = generateRules(L, supportData, minConf=minConf)
+    rules = []
     if getRules:
+        rules = generateRules(L, supportData, minConf=minConf)
         print("一共有" + str(rules.__len__()) + "条满足置信度的规则，如下所示")
         for rule in rules:
             print(str(rule[0]) + "->" + str(rule[1]) + ":" + str(rule[2]))
 
 
     print("频繁项集个数", count)
-    print("挖掘到规则数", rules.__len__())
+    if getRules:
+        print("挖掘到规则数", rules.__len__())
 
 
 

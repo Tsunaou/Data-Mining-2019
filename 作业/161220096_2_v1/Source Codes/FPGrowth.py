@@ -294,14 +294,16 @@ def getFPGrowth(datatype=0,minSup=0.5,minConf=0.7,getFreqitems=True,getRules=Fal
 
     L, supportData = FP_rule_adapter(result=result,datasetlenth=dataset.__len__())
 
-    rules = generateRules(L, supportData, minConf=minConf)
 
+    rules = []
     if getRules:
+        rules = generateRules(L, supportData, minConf=minConf)
         for rule in rules:
             print(str(rule[0]) + "->" + str(rule[1]) + ":" + str(rule[2]))
 
     print("频繁项集个数", result.__len__())
-    print("挖掘到规则数", rules.__len__())
+    if getRules:
+        print("挖掘到规则数", rules.__len__())
 
 
 if __name__ == '__main__':
