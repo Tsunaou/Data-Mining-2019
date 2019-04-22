@@ -116,6 +116,8 @@ class FileOption:
         for trans in self.transactions:
             newSet = []
             for items in trans:
+                if items == 'o':
+                    print("GGG")
                 newSet.append(items)
             retDict.append(newSet)
 

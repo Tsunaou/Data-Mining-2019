@@ -9,8 +9,8 @@ def PowerSetsBinary(items):
         for j in range(N):
             if(i >> j ) % 2 == 1:
                 combo = combo.union(items[j])
-                # print("i=",i,"j=",j)
         if combo.__len__()!= 0:
+            print("生成第", i, "个子集", combo)
             retSubset.append(combo)
     return retSubset
 
@@ -37,12 +37,11 @@ def getBrute(datatype=0,minSup=0.5,minConf=0.7,getFreqitems=True,getRules=False)
         return
 
     minSup = minSup * transactions.__len__()
-    minConf = minConf
 
     print("Brute Force 开始")
 
     subSets = PowerSetsBinary(items)  # 得到items的所有子集
-    # print(subSets)
+
     print("一共有",subSets.__len__(),"个子集")
     supDict = {}
     index = 1

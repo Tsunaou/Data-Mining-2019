@@ -77,11 +77,11 @@ if __name__ == '__main__':
     start = time.time()  # 计算程序运行时间
 
     fop = FileOption()
-    # dataset= fop.get_data_FP_new('dataset/Groceries.csv')
+    dataset= fop.get_data_FP_new('dataset/Groceries.csv')
     # dataset= fop.get_data_FP_new('dataset/testbf.csv')
-    dataset = fop.get_data_FP_UNIX()
-    minSup = dataset.__len__() * 0.01
-    minConf = 0.01
+    # dataset = fop.get_data_FP_UNIX()
+    minSup = dataset.__len__() * 0.05
+    minConf = 0.05
 
     frequent_itemsets = find_frequent_itemsets(dataset, minSup=minSup)
     # print(type(frequent_itemsets))   # print type
