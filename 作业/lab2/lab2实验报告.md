@@ -221,8 +221,6 @@ def apriori(items,transactions, minSupport=0.5):
     return L, supportData
 ```
 
-
-
 ### (2) FP-Growth 算法
 
 #### (a) 算法介绍
@@ -398,9 +396,211 @@ def PowerSetsBinary(items):
 
 ## 4.代码执行与实验数据
 
+### 4.1 文件结构
+
+本次实验代码由以下文件组成：
+
+| 文件名        | 作用                                                         |
+| ------------- | ------------------------------------------------------------ |
+| dataset       | 存放该实验的数据集，共3个，分别是Groceries，UNIX和暴力专用小数据集 |
+| FileOption.py | 用于文件读取和数据集获取和清洗的类                           |
+| Apriori.py    | 实现Apriori算法并提供对外接口的文件                          |
+| FPGrowth.py   | 实现FP-Growth算法并提供对外接口的文件                        |
+| BruteForce.py | 实现暴力算法并提供对外接口的文件                             |
+| freqItems.py  | 测试脚本，可以在此调用上述方法，并得到频繁项集，关联规则，内存和时间消耗 |
+
+### 4.2 代码使用说明
+
+运行freqItems.py即可对代码进行测试，代码参数如下：
+| 参数名       | 含义                                                         |
+| ------------ | ------------------------------------------------------------ |
+| methodType   | 使用的方法，0为Apriori法，1为FPGrowth法，2为暴力法（暴力法只能使用datatye=3的数据集，不然会炸） |
+| datatype     | 挖掘的数据集，0为Groceies数据集，1为UNIX数据集, 2为测试暴力算法测试集 |
+| minSup       | 最小支持度（默认为0-1的小数）                                |
+| minConf      | 最小置信度（默认为0-1的小数）                                |
+| getFreqitems | 是否输出频繁项集（暴力法只能输出频繁项集）                   |
+| getRules     | 是否输出关联规则                                             |
+
+根据```methodType```，代码调用下列三个接口，通过修改上述参数，即可对代码进行测试
+
+```python
+if methodType == 0:
+    ap.getApriori(datatype,minSup,minConf,getFreqitems,getRules)
+elif methodType == 1:
+    fp.getFPGrowth(datatype,minSup,minConf,getFreqitems,getRules)
+elif methodType == 2:
+    if datatype != 2:
+        print("暴力方法只能处理小规模数据")
+        sys.exit(-1)
+    bf.getBrute(datatype,minSup,minConf,getFreqitems,getRules)
+else:
+    print("请选择正确的方法类型")
+    sys.exit(-1)
+```
+
+下面分别给出三个对外接口的代码：
+
+#### (1) getApriori
+
+```python
+def getApriori(datatype=0,minSup=0.5,minConf=0.7,getFreqitems=True,getRules=False):
+    '''
+    使用 Apriori算法得到频繁项集和规则
+    :param datatype: 挖掘的数据集，0为Groceies数据集，1为UNIX数据集, 2为测试暴力算法测试集
+    :param getFreqitems: 是否得到频繁项
+    :param getRules: 是否得到频繁规则
+    :return:
+    '''
+    fop = FileOption()
+    items = []
+    transactions = []
+
+    if datatype == 0:
+        items, transactions = fop.get_data('dataset/Groceries.csv')
+    elif datatype == 1:
+        items, transactions = fop.get_UNIX_data()
+    elif datatype == 2:
+        items, transactions = fop.get_data('dataset/bftest.csv')
+    else:
+        print("数据集类型出错")
+        return
+
+    minSupport = minSup
+    minConf = minConf
+
+    print("Apriori 开始")
+    L, supportData = apriori(items, transactions, minSupport=minSupport)
+
+    count = 0  # 频繁项集数
+    if getFreqitems:
+        for Li in L:
+            count += Li.__len__()
+            Llist = []
+            for items in Li:
+                Llist.append(list(set(items)))
+            result = sorted(Llist, key=lambda i: i[0])  # 排序后输出
+            for its in result:
+                print(str(its) + "->" + str(supportData.get(frozenset(its))))  # 输出每个频繁项集的支持度
+    print("频繁项数为："+str(count))
+
+    rules = generateRules(L, supportData, minConf=minConf)
+    if getRules:
+        print("一共有" + str(rules.__len__()) + "条满足置信度的规则，如下所示")
+        for rule in rules:
+            print(str(rule[0]) + "->" + str(rule[1]) + ":" + str(rule[2]))
 
 
-##### 
+    print("频繁项集个数", count)
+    print("挖掘到规则数", rules.__len__())
+```
+
+#### (2) getFPGrowth
+
+```python
+def getFPGrowth(datatype=0,minSup=0.5,minConf=0.7,getFreqitems=True,getRules=False):
+    '''
+    使用 FPGrowth算法得到频繁项集和规则
+    :param datatype: 挖掘的数据集，0为Groceies数据集，1为UNIX数据集, 2为测试暴力算法测试集
+    :param getFreqitems: 是否得到频繁项
+    :param getFreqitems: 是否得到频繁项
+    :param getRules: 是否得到频繁规则
+    :return:
+    '''
+
+    fop = FileOption()
+    dataset = []
+    if datatype == 0:
+        dataset= fop.get_data_FP_new('dataset/Groceries.csv')
+    elif datatype == 1:
+        dataset = fop.get_data_FP_UNIX()
+    elif datatype == 2:
+        dataset = fop.get_data_FP_new('dataset/bftest.csv')
+    else:
+        print("数据集类型出错")
+        return
+    minSupport = dataset.__len__() * minSup
+    minConf = minConf
+
+    print("FP-Growth 开始")
+    frequent_itemsets = find_frequent_itemsets(dataset, minSup=minSupport)
+    # print(type(frequent_itemsets))   # print type
+
+    result = []
+    for itemset, support in frequent_itemsets:    # 将generator结果存入list
+        result.append((itemset, support))
+
+    result = sorted(result, key=lambda i: i[0])   # 排序后输出
+    if getFreqitems:
+        for itemset, support in result:
+            print(str(itemset) + ' ' + str(support/dataset.__len__()))
+    print("频繁项集个数",result.__len__())
+
+    L, supportData = FP_rule_adapter(result=result,datasetlenth=dataset.__len__())
+
+    rules = generateRules(L, supportData, minConf=minConf)
+
+    if getRules:
+        for rule in rules:
+            print(str(rule[0]) + "->" + str(rule[1]) + ":" + str(rule[2]))
+
+    print("频繁项集个数", result.__len__())
+    print("挖掘到规则数", rules.__len__())
+```
+
+#### (3) getBrute
+
+```python
+def getBrute(datatype=0,minSup=0.5,minConf=0.7,getFreqitems=True,getRules=False):
+    '''
+    使用 Apriori算法得到频繁项集和规则
+    :param datatype: 挖掘的数据集，0为Groceies数据集，1为UNIX数据集, 2为测试暴力算法测试集
+    :param getFreqitems: 是否得到频繁项
+    :param getRules: 是否得到频繁规则
+    :return:
+    '''
+    fop = FileOption()
+    items = []
+    transactions = []
+
+    if datatype == 0:
+        items, transactions = fop.get_data('dataset/Groceries.csv')
+    elif datatype == 1:
+        items, transactions = fop.get_UNIX_data()
+    elif datatype == 2:
+        items, transactions = fop.get_data('dataset/bftest.csv')
+    else:
+        print("数据集类型出错")
+        return
+
+    minSup = minSup * transactions.__len__()
+
+    print("Brute Force 开始")
+
+    subSets = PowerSetsBinary(items)  # 得到items的所有子集
+
+    print("一共有",subSets.__len__(),"个子集")
+    supDict = {}
+    index = 1
+    for subset in subSets:
+        if index%10000 == 0:
+            print("处理第",index,"项")
+        index += 1
+        supCnts = 0
+        for trans in transactions:
+            if subset.issubset(trans):
+                supCnts += 1
+        if supCnts >= minSup:
+            supDict[subset] = supCnts/transactions.__len__()
+
+    for k,v in supDict.items():
+        print(list(k),"->",v)
+
+    print("频繁项集个数", supDict.__len__())
+```
+
+### 4.3 实验结果和数据
+
+
 
 
 

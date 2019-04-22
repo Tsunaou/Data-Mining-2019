@@ -17,8 +17,8 @@ if __name__ == '__main__':
     methodType = 1  #使用的方法，0为Apriori法，1为FPGrowth法，2为暴力法（暴力法只能使用datatye=3的数据集，不然会炸）
     datatype = 1  # 挖掘的数据集，0为Groceies数据集，1为UNIX数据集, 2为测试暴力算法测试集
     minSup = 0.05  # 最小支持度
-    minConf = 0.05  # 最小值置信度
-    getFreqitems = True  # 是否输出频繁项集（暴力法只能输出关联规则）
+    minConf = 0.05  # 最小置信度
+    getFreqitems = True  # 是否输出频繁项集（暴力法只能输出频繁项集）
     getRules = True  # 是否输出关联规则
 
     if methodType == 0:
