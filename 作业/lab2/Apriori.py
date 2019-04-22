@@ -70,9 +70,8 @@ def generateRules(L, supportData, minConf=0.7):  # supportData 是一个字典
     for i in range(1, len(L)):  # 只获取有至少两个元素的集合
         for freqSet in L[i]:
             # 转化为只包含单个元素的集合列表
-            H1 = []
-            for item in freqSet:
-                H1.append(frozenset(item))
+            H1 = [frozenset([item]) for item in freqSet]  # frozenset({2, 3}) 转换为 [frozenset({2}), frozenset({3})]
+
 
             if i > 1:
                 # 如果集合元素大于2个，则需要处理才能获得规则
@@ -81,35 +80,35 @@ def generateRules(L, supportData, minConf=0.7):  # supportData 是一个字典
                 calcConf(freqSet, H1, supportData, bigRuleList, minConf)
 
     # 对生成的rule排序,以便观察
-    newRule = []
-    for rule in bigRuleList:
-        newRule.append((list(set(rule[0])),list(set(rule[1])),rule[2]))
-    newRule = sorted(newRule, key=lambda i: i[0])   # 排序
+    # newRule = []
+    # for rule in bigRuleList:
+    #     newRule.append((list(set(rule[0])),list(set(rule[1])),rule[2]))
+    # newRule = sorted(newRule, key=lambda i: i[0])   # 排序
 
-    return newRule
+    return bigRuleList
 
 
 def calcConf(freqSet, H, supportData, brl, minConf=0.7):
     """
     对规则进行评估
-    返回 满足最小可信度的关联规则:retRules
+    返回 满足最小可信度的关联规则:prunedH
     """
-    retRules = []  # 创建一个新的列表去返回
+    prunedH = []  # 创建一个新的列表去返回
     for conseq in H:
         conf = supportData.get(freqSet) / supportData.get(freqSet - conseq)
         if conf >= minConf:
             brl.append((freqSet - conseq, conseq, conf))
-            retRules.append(conseq)
-    return retRules
+            prunedH.append(conseq)
+    return prunedH
 
 
 # 生成候选规则集合
 def rulesFromConseq(freqSet, H, supportData, brl, minConf=0.7):
     m = H[0].__len__()
-    if len(freqSet) > (m + 1):  # 尝试进一步合并
+    if (len(freqSet) > (m + 1)):  # 尝试进一步合并
         Hmp1 = aprioriGen(H, m + 1)  # 将单个集合元素两两合并
         Hmp1 = calcConf(freqSet, Hmp1, supportData, brl, minConf)
-        if len(Hmp1) > 1:  # need at least two sets to merge
+        if (len(Hmp1) > 1):  # need at least two sets to merge
             rulesFromConseq(freqSet, Hmp1, supportData, brl, minConf)
 
 def getApriori(datatype=0,minSup=0.5,minConf=0.7,getFreqitems=True,getRules=False):

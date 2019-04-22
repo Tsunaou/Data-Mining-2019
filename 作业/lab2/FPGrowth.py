@@ -80,7 +80,7 @@ if __name__ == '__main__':
     dataset= fop.get_data_FP_new('dataset/Groceries.csv')
     # dataset= fop.get_data_FP_new('dataset/testbf.csv')
     # dataset = fop.get_data_FP_UNIX()
-    minSup = dataset.__len__() * 0.05
+    minSup = dataset.__len__() * 0.02
     minConf = 0.05
 
     frequent_itemsets = find_frequent_itemsets(dataset, minSup=minSup)

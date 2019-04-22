@@ -14,7 +14,7 @@ if __name__ == '__main__':
     print('exe:  ', p.exe())
     start = time.time()  # 计算程序运行时间
 
-    methodType = 1  #使用的方法，0为Apriori法，1为FPGrowth法，2为暴力法（暴力法只能使用datatye=3的数据集，不然会炸）
+    methodType = 0  #使用的方法，0为Apriori法，1为FPGrowth法，2为暴力法（暴力法只能使用datatye=3的数据集，不然会炸）
     datatype = 0  # 挖掘的数据集，0为Groceies数据集，1为UNIX数据集, 2为测试暴力算法测试集
     minSup = 0.02  # 最小支持度
     minConf = 0.05  # 最小值置信度
