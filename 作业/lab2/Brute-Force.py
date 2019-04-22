@@ -31,7 +31,8 @@ if __name__ == '__main__':
     supDict = {}
     index = 1
     for subset in subSets:
-        # print("处理第",index,"项")
+        if index%100000 == 0:
+            print("处理第",index,"项")
         index += 1
         supCnts = 0
         for trans in transactions:
