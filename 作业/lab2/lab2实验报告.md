@@ -123,6 +123,21 @@ def get_UNIX_data(self):
 
 以上是Apriori 算法数据的获取，FP-Growth算法由于数据结构有差异，因此基于上述方法得到的数据进行修饰后得到适合其的数据，这里不多赘述。
 
+### （3）bftest 数据集
+
+用于测试Brute-Force方法的数据集，为Grocery Store 数据集的前7项
+
+```txt
+"","items"
+"1","{citrus fruit,semi-finished bread,margarine,ready soups}"
+"2","{tropical fruit,yogurt,coffee}"
+"3","{whole milk}"
+"4","{pip fruit,yogurt,cream cheese ,meat spreads}"
+"5","{other vegetables,whole milk,condensed milk,long life bakery product}"
+"6","{whole milk,butter,yogurt,rice,abrasive cleaner}"
+"7","{rolls/buns}"
+```
+
 
 
 ## 3.方法的介绍和代码的实现
@@ -604,18 +619,97 @@ def getBrute(datatype=0,minSup=0.5,minConf=0.7,getFreqitems=True,getRules=False)
 
 #### (1) Grocery Store 数据集
 
-|           | minSup | minConf | 频繁项集数 | 规则数 | 时间 | 内存 |
-| --------- | ------ | ------- | ---------- | ------ | ---- | ---- |
-| Apriori   | 0.05   | 0.05    |            |        |      |      |
-| FP-Growth |        |         |            |        |      |      |
-| Apriori   | 0.1    | 0.05    |            |        |      |      |
-| FP-Growth |        |         |            |        |      |      |
-| Apriori   | 0.05   | 0.10    |            |        |      |      |
-| FP-Growth |        |         |            |        |      |      |
-| Apriori   | 0.3    | 0.05    |            |        |      |      |
-| FP-Growth |        |         |            |        |      |      |
-| Apriori   | 0.5    | 0.10    |            |        |      |      |
-| FP-Growth |        |         |            |        |      |      |
+|           | minSup | minConf | 频繁项集数 | 规则数 | 时间(s) | 内存(MB) |
+| --------- | ------ | ------- | ---------- | ------ | ------- | -------- |
+| Apriori   | 0.05   | 0.05    | 31         | 6      | 0.8617  | 53.34    |
+| FP-Growth |        |         | 31         | 6      | 0.7221  | 62.68    |
+| Apriori   | 0.1    | 0.05    | 8          | 0      | 0.3730  | 53.45    |
+| FP-Growth |        |         | 8          | 0      | 0.1974  | 54.49    |
+| Apriori   | 0.02   | 0.05    | 122        | 128    | 4.1768  | 54.47    |
+| FP-Growth |        |         | 122        | 128    | 1.2437  | 72.08    |
+| Apriori   | 0.01   | 0.05    | 333        | 499    | 7.3703  | 53.73    |
+| FP-Growth |        |         | 333        | 499    | 1.9608  | 66.59    |
+| Apriori   | 0.002  | 0.05    | 4223       | 6506   | 62.30   | 55.61    |
+| FP-Growth |        |         | 4226       | 6506   | 4.0152  | 72.45    |
+| Apriori   | 0.002  | 0.1     | 4223       | 3089   | 70.93   | 54.95    |
+| FP-Growth |        |         | 4226       | 3089   | 3.7968  | 71.59    |
+
+#### (2) Unix 用户数据集
+
+|           | minSup | minConf | 频繁项集数 | 规则数 | 时间(s) | 内存(MB) |
+| --------- | ------ | ------- | ---------- | ------ | ------- | -------- |
+| Apriori   | 0.05   | 0.05    | 52         | 68     | 6.2919  | 59.65    |
+| FP-Growth |        |         | 52         | 68     | 2.8713  | 63.88    |
+| Apriori   | 0.1    | 0.05    | 13         | 11     | 5.3157  | 59.97    |
+| FP-Growth |        |         | 13         | 11     | 2.2290  | 60.41    |
+| Apriori   | 0.02   | 0.05    | 288        | 874    | 8.527   | 60.36    |
+| FP-Growth |        |         | 288        | 874    | 3.619   | 70.98    |
+| Apriori   | 0.02   | 0.02    | 288        | 874    | 9.113   | 60.00    |
+| FP-Growth |        |         | 288        | 874    | 3.017   | 70.96    |
+| Apriori   | 0.005  | 0.02    | 5788       | 57028  | 102.69  | 61.35    |
+| FP-Growth |        |         | 5788       | 50728  | 8.2379  | 72.07    |
+
+#### (3) bftest数据集
+
+bftest数据集是从Groceries数据集中选取前7项得到的数据集，主要为了测试暴力算法。因为暴力算法真的太暴力了，指数增长的子集，一旦数据集稍微大了一些，就会被系统killed
+
+|           | minSup | 频繁项集数 | 时间(s) | 内存(MB) |
+| --------- | ------ | ---------- | ------- | -------- |
+| Apriori   | 0.05   | 81       | 0.011   | 48.13 |
+| FP-Growth |        | 81       | 0.013   | 48.26 |
+| BruteForce   |     | 81       | 18.75   | 48.07 |
+| Apriori   | 0.01 | 81       | 0.0090  | 48.09 |
+| FP-Growth |        | 81       | 0.0089  | 48.27    |
+| BruteForce   |     | 81       | 19.00   | 47.97 |
+
+
+
+## 5.关联规则的挖掘与解读
+
+### 5.1 Grocery Store 数据集
+
+在该数据集上，经过对```minSup```和```minConf```的调试，找到了一组较为合适的取值
+
+```python
+minSup = 0.05,minConf = 0.05
+#  规则如下
+{'other vegetables'} -> {'whole milk'} : 38.68%
+{'whole milk'}->{'other vegetables'}:29.28%
+{'rolls buns'}->{'whole milk'}:30.79%
+{'whole milk'}->{'rolls buns'}:22.16%
+{'yogurt'}->{'whole milk'}:40.16%
+{'whole milk'}->{'yogurt'}:21.92%  
+```
+
+观察得到的规则，可以看出基本集中在other vegetables，whole milk，rolls buns，yogurt四项中，分别是蔬菜，牛奶，面包和酸奶，都是食品类的消费品。观察上述结果，不难发现买牛奶的有很大概率会买其他三种，因此可以考虑将这三种商品放在一起，并且将牛奶放在显眼的位置。
+
+### 5.2 Unix 用户数据集
+
+在该数据集上，经过对```minSup```和```minConf```的调试，找到了一组较为合适的取值
+
+```python
+minSup = 0.1,minConf = 0.1
+#  规则如下
+{'cd'}->{'ls'}:0.6387377584330794
+{'ls'}->{'cd'}:0.8308563340410474
+{'rm'}->{'cd'}:0.875
+{'cd'}->{'rm'}:0.3427638737758433
+{'vi'}->{'cd'}:0.8787255909558068
+{'cd'}->{'vi'}:0.4651795429815016
+{'vi'}->{'ls'}:0.6855087358684482
+{'ls'}->{'vi'}:0.4720452937013447
+{'vi'}->{'ls', 'cd'}:0.6294964028776979
+{'cd'}->{'ls', 'vi'}:0.3332426550598477
+{'ls'}->{'cd', 'vi'}:0.43347487615003544  
+```
+
+观察得到的规则，可以看出基本集中在other vegetables，whole milk，rolls buns，yogurt四项中，分别是蔬菜，牛奶，面包和酸奶，都是食品类的消费品。观察上述结果，不难发现买牛奶的有很大概率会买其他三种，因此可以考虑将这三种商品放在一起，并且将牛奶放在显眼的位置。
+
+## 6.方法的比较与感想
+
+
+
+## 7.参考资料
 
 
 
