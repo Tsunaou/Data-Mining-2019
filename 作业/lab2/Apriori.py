@@ -37,8 +37,10 @@ def aprioriGen(Lk, k):
     resList = []
     for i in range(Lk.__len__()):  # 两层循环比较Lk中的每个元素与其它元素
         for j in range(i + 1, Lk.__len__()):
-            L1 = (list(Lk[i])[0:k - 2]).sort()  # 取集合排序后的前k-1项
-            L2 = (list(Lk[j])[0:k - 2]).sort()
+            L1 = (list(Lk[i])[0:k - 2])  # 取集合排序后的前k-1项
+            L2 = (list(Lk[j])[0:k - 2])
+            L1.sort()
+            L2.sort()
             if L1 == L2:
                 # 比较前k-1项，若前k-1项相同，则合并
                 res = Lk[i] | Lk[j]
@@ -175,7 +177,7 @@ if __name__ == '__main__':
     # items, transactions = fop.get_data('dataset/testbf.csv')
     # items, transactions = fop.get_UNIX_data()
 
-    minSupport = 0.05
+    minSupport = 0.02
     minConf = 0.05
     print("最小支持度为："+str(minSupport))
     print("最小置信度为："+str(minConf))
