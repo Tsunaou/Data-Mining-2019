@@ -4,6 +4,8 @@
 
 [TOC]
 
+<div STYLE="page-break-after: always;"></div>
+
 ## 1.实验说明
 
 （1）实验要求：对给定的数据集挖掘关联规则
@@ -48,7 +50,7 @@ def get_frozenset(self,filename):
                 self.items = list(map(frozenset, out))  
 ```
 
-
+<div STYLE="page-break-after: always;"></div>
 
 ### （2）UNIX_usage 数据集
 
@@ -138,7 +140,7 @@ def get_UNIX_data(self):
 "7","{rolls/buns}"
 ```
 
-
+<div STYLE="page-break-after: always;"></div>
 
 ## 3.方法的介绍和代码的实现
 
@@ -235,6 +237,8 @@ def apriori(items,transactions, minSupport=0.5):
         k = k + 1
     return L, supportData
 ```
+
+<div STYLE="page-break-after: always;"></div>
 
 ### (2) FP-Growth 算法
 
@@ -375,7 +379,7 @@ def find_frequent_itemsets(transactions, minSup):
         yield itemset
 ```
 
-
+<div STYLE="page-break-after: always;"></div>
 
 ### (3) Brute-Force 算法
 
@@ -407,7 +411,7 @@ def PowerSetsBinary(items):
     return retSubset
 ```
 
-
+<div STYLE="page-break-after: always;"></div>
 
 ## 4.代码执行与实验数据
 
@@ -634,6 +638,8 @@ def getBrute(datatype=0,minSup=0.5,minConf=0.7,getFreqitems=True,getRules=False)
 | Apriori   | 0.002  | 0.1     | 4223       | 3089   | 70.93   | 54.95    |
 | FP-Growth |        |         | 4226       | 3089   | 3.7968  | 71.59    |
 
+<div STYLE="page-break-after: always;"></div>
+
 #### (2) Unix 用户数据集
 
 |           | minSup | minConf | 频繁项集数 | 规则数 | 时间(s) | 内存(MB) |
@@ -662,7 +668,7 @@ bftest数据集是从Groceries数据集中选取前7项得到的数据集，主�
 | FP-Growth |        | 81       | 0.0089  | 48.27    |
 | BruteForce   |     | 81       | 19.00   | 47.97 |
 
-
+<div STYLE="page-break-after: always;"></div>
 
 ## 5.关联规则的挖掘与解读
 
@@ -689,31 +695,57 @@ minSup = 0.05,minConf = 0.05
 
 ```python
 minSup = 0.1,minConf = 0.1
-#  规则如下
-{'cd'}->{'ls'}:0.6387377584330794
-{'ls'}->{'cd'}:0.8308563340410474
-{'rm'}->{'cd'}:0.875
-{'cd'}->{'rm'}:0.3427638737758433
-{'vi'}->{'cd'}:0.8787255909558068
-{'cd'}->{'vi'}:0.4651795429815016
-{'vi'}->{'ls'}:0.6855087358684482
-{'ls'}->{'vi'}:0.4720452937013447
-{'vi'}->{'ls', 'cd'}:0.6294964028776979
-{'cd'}->{'ls', 'vi'}:0.3332426550598477
-{'ls'}->{'cd', 'vi'}:0.43347487615003544  
+#  规则如下，共11条
+{'cd'}->{'ls'}:63.87%
+{'ls'}->{'cd'}:83.09%
+{'rm'}->{'cd'}:87.5%
+{'cd'}->{'rm'}:34.28%
+{'vi'}->{'cd'}:87.87%
+{'cd'}->{'vi'}:46.51%
+{'vi'}->{'ls'}:68.55%
+{'ls'}->{'vi'}:47.20%
+{'vi'}->{'ls', 'cd'}:62.95%
+{'cd'}->{'ls', 'vi'}:33.32%
+{'ls'}->{'cd', 'vi'}:43.35%
 ```
 
-观察得到的规则，可以看出基本集中在other vegetables，whole milk，rolls buns，yogurt四项中，分别是蔬菜，牛奶，面包和酸奶，都是食品类的消费品。观察上述结果，不难发现买牛奶的有很大概率会买其他三种，因此可以考虑将这三种商品放在一起，并且将牛奶放在显眼的位置。
+观察得到的规则，可以看出基本集中在cd，ls，rm，vi四项中，分别是切换目录，展示，删除和用vi编辑，都是Unix系统中的常见命令。观察上述结果，不难发现在这11条规则中，都是很常见的一些操作。其中置信度最高的三者分别为 vi -> cd,rm->cd,ls->cd，都是在进行编辑、删除、展示目录后切换目录，而且cd和ls的出现频率极高，可以看出Unix命令行界面下，每切换目录都得看看目录下是什么的真实场景。
+
+其次，由最后三项规则，可以归纳出三种行为：
+
+- vi->ls, cd：编辑后先看看当前目录，然后切换
+- cd->ls, vi：切换目录后，看文件名，编辑
+- ls->cd,vi：展示得到目录后，切换，编辑
+
+显然，这的确是Unix下的常见行为
+
+<div STYLE="page-break-after: always;"></div>
 
 ## 6.方法的比较与感想
+
+在对于频繁项的挖掘上，由上述Brute-Force同另外两种方法的比较可以看出，直接用项集的所有子集去匹配根本就是天方夜谭。当数据量达到7时，就可以看出速度明显区别，更不用说当面对100以上的数据时，暴力求解基本是不可能完成的。因此才有了Apriori和FP-Growth两种算法的诞生。
+
+对比这两种算法，不难发现在支持度较高的情况下，FP-Growth的速度明显快于Apriori算法，这得益于FP-Growth的频繁模式增长。然而当支持度较低时，若数据量比较小，建树的时间开销也许会让FP-Growth算法慢一些，但两者此时都是在很小段时间完成的，因此差距不大。另外，FP-Growth的内存开销大部分情况下总是高于Apriori算法，这应该是因为建树和不断递归造成的内存资源开销较大。
+
+总体来说，FP-Growth是效率更优的算法，在数据集较大且阈值较小时，基本至少差一个数量级。但是在代码中也可以看到，Apriori的算法扩展性较好，可以用于并行计算，而FP-Growth的树结构容易在并行时出现数据不一致问题。
 
 
 
 ## 7.参考资料
 
+[1] 《机器学习实战》人民邮电出版社 Peter Harrington
+
+[2]  https://blog.csdn.net/qq_36523839/article/details/82191677
+
+[3]  https://blog.csdn.net/qq_36523839/article/details/82250748
+
+[4]  https://github.com/Nana0606/python3-fp-growth
+
+[5] https://www.jianshu.com/p/1b3b3a13b558
+
+[6] https://blog.csdn.net/luoganttcc/article/details/80785149
 
 
 
 
-<div STYLE="page-break-after: always;"></div>
 
