@@ -1,0 +1,131 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+Relation:     wisconsin-breast-cancer
+Instances:    699
+Attributes:   10
+              Clump_Thickness
+              Cell_Size_Uniformity
+              Cell_Shape_Uniformity
+              Marginal_Adhesion
+              Single_Epi_Cell_Size
+              Bare_Nuclei
+              Bland_Chromatin
+              Normal_Nucleoli
+              Mitoses
+              Class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Sigmoid Node 0
+    Inputs    Weights
+    Threshold    -9.804527394044841
+    Node 2    6.8516617315884805
+    Node 3    4.49869558686788
+    Node 4    6.284167611641404
+    Node 5    7.221044397250162
+    Node 6    6.083631613065973
+Sigmoid Node 1
+    Inputs    Weights
+    Threshold    9.803766288674721
+    Node 2    -6.8511144896605
+    Node 3    -4.498518784682652
+    Node 4    -6.283600674665973
+    Node 5    -7.220545242532503
+    Node 6    -6.083138513420448
+Sigmoid Node 2
+    Inputs    Weights
+    Threshold    -9.908736955802981
+    Attrib Clump_Thickness    4.376737055941982
+    Attrib Cell_Size_Uniformity    -3.970358358810894
+    Attrib Cell_Shape_Uniformity    -0.09806960635195307
+    Attrib Marginal_Adhesion    1.0758120669110918
+    Attrib Single_Epi_Cell_Size    -3.3681795286608796
+    Attrib Bare_Nuclei    -6.298185087526639
+    Attrib Bland_Chromatin    0.7270257979680864
+    Attrib Normal_Nucleoli    -1.8384024068077582
+    Attrib Mitoses    0.5108444947821914
+Sigmoid Node 3
+    Inputs    Weights
+    Threshold    -10.548705812597461
+    Attrib Clump_Thickness    -0.3878936052049567
+    Attrib Cell_Size_Uniformity    -5.063871788657819
+    Attrib Cell_Shape_Uniformity    -5.036340421192401
+    Attrib Marginal_Adhesion    1.351018692661807
+    Attrib Single_Epi_Cell_Size    -2.7020531155756133
+    Attrib Bare_Nuclei    -2.9650029928065287
+    Attrib Bland_Chromatin    -1.101258491905614
+    Attrib Normal_Nucleoli    -1.5675942486368057
+    Attrib Mitoses    -0.27031807999464424
+Sigmoid Node 4
+    Inputs    Weights
+    Threshold    -2.235245741294839
+    Attrib Clump_Thickness    -6.285236769285585
+    Attrib Cell_Size_Uniformity    -0.6353205842773015
+    Attrib Cell_Shape_Uniformity    2.4162909548511076
+    Attrib Marginal_Adhesion    6.168298966084267
+    Attrib Single_Epi_Cell_Size    -2.393259818669244
+    Attrib Bare_Nuclei    -1.1890228338316657
+    Attrib Bland_Chromatin    -4.337016011554835
+    Attrib Normal_Nucleoli    -1.7385489481467635
+    Attrib Mitoses    -6.301263749844388
+Sigmoid Node 5
+    Inputs    Weights
+    Threshold    -10.885293720674314
+    Attrib Clump_Thickness    -4.035661413745311
+    Attrib Cell_Size_Uniformity    2.489533324267216
+    Attrib Cell_Shape_Uniformity    2.1509397766007683
+    Attrib Marginal_Adhesion    -7.480548741387348
+    Attrib Single_Epi_Cell_Size    -1.2436684956637996
+    Attrib Bare_Nuclei    -1.262721276494807
+    Attrib Bland_Chromatin    -2.740916389211295
+    Attrib Normal_Nucleoli    -1.300202776134117
+    Attrib Mitoses    -1.1075469420663533
+Sigmoid Node 6
+    Inputs    Weights
+    Threshold    -8.138266429298872
+    Attrib Clump_Thickness    -1.3500067538772842
+    Attrib Cell_Size_Uniformity    -0.5627356248538514
+    Attrib Cell_Shape_Uniformity    -5.426134595300857
+    Attrib Marginal_Adhesion    -4.838825674145412
+    Attrib Single_Epi_Cell_Size    5.485815889895944
+    Attrib Bare_Nuclei    -0.30179105440850323
+    Attrib Bland_Chromatin    -4.670981007286472
+    Attrib Normal_Nucleoli    4.529294717846499
+    Attrib Mitoses    -2.4748478307254267
+Class benign
+    Input
+    Node 0
+Class malignant
+    Input
+    Node 1
+
+
+Time taken to build model: 0.89 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         666               95.279  %
+Incorrectly Classified Instances        33                4.721  %
+Kappa statistic                          0.8958
+Mean absolute error                      0.0501
+Root mean squared error                  0.197 
+Relative absolute error                 11.083  %
+Root relative squared error             41.4507 %
+Total Number of Instances              699     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.961    0.062    0.967      0.961    0.964      0.896    0.986     0.994     benign
+                 0.938    0.039    0.926      0.938    0.932      0.896    0.986     0.965     malignant
+Weighted Avg.    0.953    0.054    0.953      0.953    0.953      0.896    0.986     0.984     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 440  18 |   a = benign
+  15 226 |   b = malignant
+
