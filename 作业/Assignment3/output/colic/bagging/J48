@@ -1,0 +1,64 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.trees.J48 -- -C 0.25 -M 2
+Relation:     horse-colic
+Instances:    368
+Attributes:   23
+              surgery
+              Age
+              rectal_temperature
+              pulse
+              respiratory_rate
+              temp_extremities
+              peripheral_pulse
+              mucous_membranes
+              capillary_refill_time
+              pain
+              peristalsis
+              abdominal_distension
+              nasogastric_tube
+              nasogastric_reflux
+              nasogastric_reflux_PH
+              rectal_examination
+              abdomen
+              packed_cell_volume
+              total_protein
+              abdominocentesis_appearance
+              abdomcentesis_total_protein
+              outcome
+              surgical_lesion
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Time taken to build model: 0.07 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         315               85.5978 %
+Incorrectly Classified Instances        53               14.4022 %
+Kappa statistic                          0.6807
+Mean absolute error                      0.2291
+Root mean squared error                  0.3464
+Relative absolute error                 49.1502 %
+Root relative squared error             71.7591 %
+Total Number of Instances              368     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.931    0.272    0.854      0.931    0.891      0.686    0.864     0.887     yes
+                 0.728    0.069    0.861      0.728    0.789      0.686    0.864     0.784     no
+Weighted Avg.    0.856    0.197    0.856      0.856    0.853      0.686    0.864     0.849     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 216  16 |   a = yes
+  37  99 |   b = no
+

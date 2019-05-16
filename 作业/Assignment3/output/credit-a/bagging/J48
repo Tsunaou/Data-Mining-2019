@@ -1,0 +1,57 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.trees.J48 -- -C 0.25 -M 2
+Relation:     credit-rating
+Instances:    690
+Attributes:   16
+              A1
+              A2
+              A3
+              A4
+              A5
+              A6
+              A7
+              A8
+              A9
+              A10
+              A11
+              A12
+              A13
+              A14
+              A15
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Time taken to build model: 0.07 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         599               86.8116 %
+Incorrectly Classified Instances        91               13.1884 %
+Kappa statistic                          0.7334
+Mean absolute error                      0.1817
+Root mean squared error                  0.3083
+Relative absolute error                 36.7777 %
+Root relative squared error             62.0402 %
+Total Number of Instances              690     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.860    0.125    0.846      0.860    0.853      0.734    0.928     0.901     +
+                 0.875    0.140    0.886      0.875    0.880      0.734    0.928     0.922     -
+Weighted Avg.    0.868    0.134    0.868      0.868    0.868      0.734    0.928     0.913     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 264  43 |   a = +
+  48 335 |   b = -
+

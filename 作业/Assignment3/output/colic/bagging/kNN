@@ -1,0 +1,64 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.lazy.IBk -- -K 1 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+Relation:     horse-colic
+Instances:    368
+Attributes:   23
+              surgery
+              Age
+              rectal_temperature
+              pulse
+              respiratory_rate
+              temp_extremities
+              peripheral_pulse
+              mucous_membranes
+              capillary_refill_time
+              pain
+              peristalsis
+              abdominal_distension
+              nasogastric_tube
+              nasogastric_reflux
+              nasogastric_reflux_PH
+              rectal_examination
+              abdomen
+              packed_cell_volume
+              total_protein
+              abdominocentesis_appearance
+              abdomcentesis_total_protein
+              outcome
+              surgical_lesion
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.lazy.IBk -K 1 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+
+Time taken to build model: 0.01 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         299               81.25   %
+Incorrectly Classified Instances        69               18.75   %
+Kappa statistic                          0.592 
+Mean absolute error                      0.2046
+Root mean squared error                  0.3923
+Relative absolute error                 43.8906 %
+Root relative squared error             81.264  %
+Total Number of Instances              368     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.871    0.287    0.838      0.871    0.854      0.593    0.824     0.824     yes
+                 0.713    0.129    0.764      0.713    0.738      0.593    0.824     0.743     no
+Weighted Avg.    0.813    0.229    0.811      0.813    0.811      0.593    0.824     0.794     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 202  30 |   a = yes
+  39  97 |   b = no
+

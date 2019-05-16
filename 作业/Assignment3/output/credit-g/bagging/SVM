@@ -1,0 +1,62 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.functions.LibSVM -- -S 0 -K 2 -D 3 -G 0.0 -R 0.0 -N 0.5 -M 40.0 -C 1.0 -E 0.001 -P 0.1 -model "D:\\Program Files\\Weka-3-8" -seed 1
+Relation:     german_credit
+Instances:    1000
+Attributes:   21
+              checking_status
+              duration
+              credit_history
+              purpose
+              credit_amount
+              savings_status
+              employment
+              installment_commitment
+              personal_status
+              other_parties
+              residence_since
+              property_magnitude
+              age
+              other_payment_plans
+              housing
+              existing_credits
+              job
+              num_dependents
+              own_telephone
+              foreign_worker
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.functions.LibSVM -S 0 -K 2 -D 3 -G 0.0 -R 0.0 -N 0.5 -M 40.0 -C 1.0 -E 0.001 -P 0.1 -model "D:\\Program Files\\Weka-3-8" -seed 1
+
+Time taken to build model: 3.67 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         686               68.6    %
+Incorrectly Classified Instances       314               31.4    %
+Kappa statistic                         -0.0221
+Mean absolute error                      0.3146
+Root mean squared error                  0.5486
+Relative absolute error                 74.8731 %
+Root relative squared error            119.7099 %
+Total Number of Instances             1000     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.977    0.993    0.697      0.977    0.813      -0.056   0.490     0.696     good
+                 0.007    0.023    0.111      0.007    0.013      -0.056   0.490     0.296     bad
+Weighted Avg.    0.686    0.702    0.521      0.686    0.573      -0.056   0.490     0.576     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 684  16 |   a = good
+ 298   2 |   b = bad
+

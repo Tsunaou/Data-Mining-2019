@@ -1,0 +1,62 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.bayes.NaiveBayes
+Relation:     german_credit
+Instances:    1000
+Attributes:   21
+              checking_status
+              duration
+              credit_history
+              purpose
+              credit_amount
+              savings_status
+              employment
+              installment_commitment
+              personal_status
+              other_parties
+              residence_since
+              property_magnitude
+              age
+              other_payment_plans
+              housing
+              existing_credits
+              job
+              num_dependents
+              own_telephone
+              foreign_worker
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.bayes.NaiveBayes 
+
+Time taken to build model: 0.01 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         748               74.8    %
+Incorrectly Classified Instances       252               25.2    %
+Kappa statistic                          0.3675
+Mean absolute error                      0.2963
+Root mean squared error                  0.4196
+Relative absolute error                 70.5296 %
+Root relative squared error             91.5706 %
+Total Number of Instances             1000     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.859    0.510    0.797      0.859    0.827      0.371    0.787     0.891     good
+                 0.490    0.141    0.598      0.490    0.538      0.371    0.787     0.576     bad
+Weighted Avg.    0.748    0.399    0.737      0.748    0.740      0.371    0.787     0.796     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 601  99 |   a = good
+ 153 147 |   b = bad
+

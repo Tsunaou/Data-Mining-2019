@@ -1,0 +1,62 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.lazy.IBk -K 1 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+Relation:     german_credit
+Instances:    1000
+Attributes:   21
+              checking_status
+              duration
+              credit_history
+              purpose
+              credit_amount
+              savings_status
+              employment
+              installment_commitment
+              personal_status
+              other_parties
+              residence_since
+              property_magnitude
+              age
+              other_payment_plans
+              housing
+              existing_credits
+              job
+              num_dependents
+              own_telephone
+              foreign_worker
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+IB1 instance-based classifier
+using 1 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         720               72      %
+Incorrectly Classified Instances       280               28      %
+Kappa statistic                          0.3243
+Mean absolute error                      0.2805
+Root mean squared error                  0.5286
+Relative absolute error                 66.7546 %
+Root relative squared error            115.3422 %
+Total Number of Instances             1000     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.810    0.490    0.794      0.810    0.802      0.325    0.660     0.776     good
+                 0.510    0.190    0.535      0.510    0.522      0.325    0.660     0.420     bad
+Weighted Avg.    0.720    0.400    0.716      0.720    0.718      0.325    0.660     0.669     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 567 133 |   a = good
+ 147 153 |   b = bad
+
