@@ -1,0 +1,61 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.functions.MultilayerPerceptron -- -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+Relation:     hepatitis
+Instances:    155
+Attributes:   20
+              AGE
+              SEX
+              STEROID
+              ANTIVIRALS
+              FATIGUE
+              MALAISE
+              ANOREXIA
+              LIVER_BIG
+              LIVER_FIRM
+              SPLEEN_PALPABLE
+              SPIDERS
+              ASCITES
+              VARICES
+              BILIRUBIN
+              ALK_PHOSPHATE
+              SGOT
+              ALBUMIN
+              PROTIME
+              HISTOLOGY
+              Class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+
+Time taken to build model: 3.7 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         131               84.5161 %
+Incorrectly Classified Instances        24               15.4839 %
+Kappa statistic                          0.4922
+Mean absolute error                      0.1927
+Root mean squared error                  0.3599
+Relative absolute error                 58.3723 %
+Root relative squared error             88.8719 %
+Total Number of Instances              155     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.531    0.073    0.654      0.531    0.586      0.496    0.846     0.584     DIE
+                 0.927    0.469    0.884      0.927    0.905      0.496    0.846     0.936     LIVE
+Weighted Avg.    0.845    0.387    0.836      0.845    0.839      0.496    0.846     0.863     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+  17  15 |   a = DIE
+   9 114 |   b = LIVE
+

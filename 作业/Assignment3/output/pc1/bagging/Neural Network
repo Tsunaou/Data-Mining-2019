@@ -1,0 +1,63 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.functions.MultilayerPerceptron -- -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+Relation:     PC1
+Instances:    1109
+Attributes:   22
+              loc
+              v(g)
+              ev(g)
+              iv(G)
+              N
+              V
+              L
+              D
+              I
+              E
+              B
+              T
+              lOCode
+              lOComment
+              locCodeAndComment
+              lOBlank
+              uniq_Op
+              uniq_Opnd
+              total_Op
+              total_Opnd
+              branchCount
+              defects
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+
+Time taken to build model: 52.05 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        1035               93.3273 %
+Incorrectly Classified Instances        74                6.6727 %
+Kappa statistic                          0.2489
+Mean absolute error                      0.1053
+Root mean squared error                  0.2387
+Relative absolute error                 80.9867 %
+Root relative squared error             93.8906 %
+Total Number of Instances             1109     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.989    0.818    0.942      0.989    0.965      0.293    0.835     0.984     false
+                 0.182    0.011    0.560      0.182    0.275      0.293    0.835     0.312     true
+Weighted Avg.    0.933    0.762    0.915      0.933    0.917      0.293    0.835     0.938     
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 1021   11 |    a = false
+   63   14 |    b = true
+
