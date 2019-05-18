@@ -1,0 +1,50 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.bayes.NaiveBayes
+Relation:     pima_diabetes
+Instances:    768
+Attributes:   9
+              preg
+              plas
+              pres
+              skin
+              insu
+              mass
+              pedi
+              age
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.bayes.NaiveBayes 
+
+Time taken to build model: 0.01 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         588               76.5625 %
+Incorrectly Classified Instances       180               23.4375 %
+Kappa statistic                          0.4695
+Mean absolute error                      0.2869
+Root mean squared error                  0.4166
+Relative absolute error                 63.1332 %
+Root relative squared error             87.3981 %
+Total Number of Instances              768     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.852    0.396    0.801      0.852    0.826      0.472    0.817     0.894     tested_negative
+                 0.604    0.148    0.686      0.604    0.643      0.472    0.817     0.669     tested_positive
+Weighted Avg.    0.766    0.309    0.761      0.766    0.762      0.472    0.817     0.815     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 426  74 |   a = tested_negative
+ 106 162 |   b = tested_positive
+

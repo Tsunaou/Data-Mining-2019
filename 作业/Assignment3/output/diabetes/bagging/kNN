@@ -1,0 +1,50 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.lazy.IBk -- -K 1 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+Relation:     pima_diabetes
+Instances:    768
+Attributes:   9
+              preg
+              plas
+              pres
+              skin
+              insu
+              mass
+              pedi
+              age
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.lazy.IBk -K 1 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         546               71.0938 %
+Incorrectly Classified Instances       222               28.9063 %
+Kappa statistic                          0.3515
+Mean absolute error                      0.3071
+Root mean squared error                  0.4745
+Relative absolute error                 67.5624 %
+Root relative squared error             99.5482 %
+Total Number of Instances              768     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.800    0.455    0.766      0.800    0.783      0.352    0.725     0.795     tested_negative
+                 0.545    0.200    0.593      0.545    0.568      0.352    0.725     0.575     tested_positive
+Weighted Avg.    0.711    0.366    0.706      0.711    0.708      0.352    0.725     0.718     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 400 100 |   a = tested_negative
+ 122 146 |   b = tested_positive
+

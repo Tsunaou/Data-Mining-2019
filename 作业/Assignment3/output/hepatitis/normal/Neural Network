@@ -1,0 +1,311 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+Relation:     hepatitis
+Instances:    155
+Attributes:   20
+              AGE
+              SEX
+              STEROID
+              ANTIVIRALS
+              FATIGUE
+              MALAISE
+              ANOREXIA
+              LIVER_BIG
+              LIVER_FIRM
+              SPLEEN_PALPABLE
+              SPIDERS
+              ASCITES
+              VARICES
+              BILIRUBIN
+              ALK_PHOSPHATE
+              SGOT
+              ALBUMIN
+              PROTIME
+              HISTOLOGY
+              Class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Sigmoid Node 0
+    Inputs    Weights
+    Threshold    5.872365515526343
+    Node 2    -6.975030359932897
+    Node 3    -2.2881701716283045
+    Node 4    -6.249832885013363
+    Node 5    -2.897037082427689
+    Node 6    -0.31808567049301867
+    Node 7    -4.2673541877673795
+    Node 8    -3.3361626616683235
+    Node 9    -2.7856313178362213
+    Node 10    -2.587392907736427
+    Node 11    -3.6583455262681306
+Sigmoid Node 1
+    Inputs    Weights
+    Threshold    -5.874493152383721
+    Node 2    6.973852065621249
+    Node 3    2.3033811105159194
+    Node 4    6.253172549261464
+    Node 5    2.939978629781096
+    Node 6    0.34340253796203907
+    Node 7    4.290883988622255
+    Node 8    3.3151962339037695
+    Node 9    2.7843959395322173
+    Node 10    2.5449276988722076
+    Node 11    3.6384410091202684
+Sigmoid Node 2
+    Inputs    Weights
+    Threshold    -1.5036571635201088
+    Attrib AGE    -0.059723951065975965
+    Attrib SEX=female    -3.638488401363699
+    Attrib STEROID=yes    1.6332256128478526
+    Attrib ANTIVIRALS=yes    1.3395635540500086
+    Attrib FATIGUE=yes    -0.3527728017834927
+    Attrib MALAISE=yes    -1.6898762035525121
+    Attrib ANOREXIA=yes    -1.8314335477332317
+    Attrib LIVER_BIG=yes    -0.6695133045945703
+    Attrib LIVER_FIRM=yes    2.018450673977438
+    Attrib SPLEEN_PALPABLE=yes    -2.5727826549047306
+    Attrib SPIDERS=yes    -1.3900895853564164
+    Attrib ASCITES=yes    0.8448129185769665
+    Attrib VARICES=yes    -3.6367055222632145
+    Attrib BILIRUBIN    -1.6010308785127894
+    Attrib ALK_PHOSPHATE    1.757490236255541
+    Attrib SGOT    -0.6233180480997921
+    Attrib ALBUMIN    1.5326929065068595
+    Attrib PROTIME    6.0435962050403695
+    Attrib HISTOLOGY=yes    2.6997754729980143
+Sigmoid Node 3
+    Inputs    Weights
+    Threshold    0.29734659074263364
+    Attrib AGE    -1.8580873949348684
+    Attrib SEX=female    -1.1220837730720878
+    Attrib STEROID=yes    0.029366088658429407
+    Attrib ANTIVIRALS=yes    0.3831068339751395
+    Attrib FATIGUE=yes    -1.110420024587358
+    Attrib MALAISE=yes    -1.322877776147798
+    Attrib ANOREXIA=yes    1.2392825575269555
+    Attrib LIVER_BIG=yes    -0.47766654169476164
+    Attrib LIVER_FIRM=yes    0.7160174162485292
+    Attrib SPLEEN_PALPABLE=yes    -0.09952218953518176
+    Attrib SPIDERS=yes    -1.7701148920964946
+    Attrib ASCITES=yes    0.2629472563218708
+    Attrib VARICES=yes    0.04888442483565629
+    Attrib BILIRUBIN    -1.0275471276372392
+    Attrib ALK_PHOSPHATE    -0.9802422666337841
+    Attrib SGOT    0.06542002252569341
+    Attrib ALBUMIN    0.5218027427442956
+    Attrib PROTIME    0.6467236606891706
+    Attrib HISTOLOGY=yes    -1.4877488363566582
+Sigmoid Node 4
+    Inputs    Weights
+    Threshold    -0.23616715388040538
+    Attrib AGE    -2.0602581781333966
+    Attrib SEX=female    -4.000450329217336
+    Attrib STEROID=yes    -1.2454361387871435
+    Attrib ANTIVIRALS=yes    0.5549552534819082
+    Attrib FATIGUE=yes    -1.0906896863723266
+    Attrib MALAISE=yes    -0.0199873253834229
+    Attrib ANOREXIA=yes    2.6711218346805436
+    Attrib LIVER_BIG=yes    1.9080846898375268
+    Attrib LIVER_FIRM=yes    -1.909536011388654
+    Attrib SPLEEN_PALPABLE=yes    -2.8947692518443926
+    Attrib SPIDERS=yes    -1.7645644494742674
+    Attrib ASCITES=yes    -0.6633178907719018
+    Attrib VARICES=yes    -0.08857263667123179
+    Attrib BILIRUBIN    -2.1779164625251632
+    Attrib ALK_PHOSPHATE    1.7401313750667018
+    Attrib SGOT    1.1353635117595833
+    Attrib ALBUMIN    1.0967945359661537
+    Attrib PROTIME    2.0249078053770435
+    Attrib HISTOLOGY=yes    -0.14566619809102171
+Sigmoid Node 5
+    Inputs    Weights
+    Threshold    0.4546265141500434
+    Attrib AGE    -2.0349316335326164
+    Attrib SEX=female    -1.3827552300010708
+    Attrib STEROID=yes    0.427068562691235
+    Attrib ANTIVIRALS=yes    0.2969216111614537
+    Attrib FATIGUE=yes    -1.3753583329256347
+    Attrib MALAISE=yes    -0.48218420797486616
+    Attrib ANOREXIA=yes    1.5814999603859576
+    Attrib LIVER_BIG=yes    0.21154717387721517
+    Attrib LIVER_FIRM=yes    -0.0825844435284467
+    Attrib SPLEEN_PALPABLE=yes    0.01374467445550038
+    Attrib SPIDERS=yes    -2.2125428631409956
+    Attrib ASCITES=yes    -0.09483602886185881
+    Attrib VARICES=yes    0.9257683763639522
+    Attrib BILIRUBIN    -0.8725729112641039
+    Attrib ALK_PHOSPHATE    -1.0838456603441695
+    Attrib SGOT    0.0880367515109337
+    Attrib ALBUMIN    -0.06419994446238712
+    Attrib PROTIME    0.15299840049425006
+    Attrib HISTOLOGY=yes    -2.5412312529200354
+Sigmoid Node 6
+    Inputs    Weights
+    Threshold    -0.32836691079433683
+    Attrib AGE    -0.5667050138731519
+    Attrib SEX=female    -0.7174931133513093
+    Attrib STEROID=yes    -0.17501627167195652
+    Attrib ANTIVIRALS=yes    0.3826028459408295
+    Attrib FATIGUE=yes    -0.49035906365694987
+    Attrib MALAISE=yes    -0.4792380665190517
+    Attrib ANOREXIA=yes    0.18250740891279316
+    Attrib LIVER_BIG=yes    -0.18409758970703452
+    Attrib LIVER_FIRM=yes    0.07624647434515687
+    Attrib SPLEEN_PALPABLE=yes    -0.03439815578613974
+    Attrib SPIDERS=yes    -0.5698546909178198
+    Attrib ASCITES=yes    0.09364668161397713
+    Attrib VARICES=yes    0.22095623568614972
+    Attrib BILIRUBIN    -0.15289487098728138
+    Attrib ALK_PHOSPHATE    0.27079712420042884
+    Attrib SGOT    0.11649946894671039
+    Attrib ALBUMIN    0.32719964353505143
+    Attrib PROTIME    0.18470974068937487
+    Attrib HISTOLOGY=yes    -0.3089554031600744
+Sigmoid Node 7
+    Inputs    Weights
+    Threshold    -0.737713973488316
+    Attrib AGE    -1.7834749831700278
+    Attrib SEX=female    -2.82395433388811
+    Attrib STEROID=yes    0.47348784859566867
+    Attrib ANTIVIRALS=yes    1.1523485609776405
+    Attrib FATIGUE=yes    -0.037264506418143314
+    Attrib MALAISE=yes    0.45270634608923016
+    Attrib ANOREXIA=yes    -0.6308713451203217
+    Attrib LIVER_BIG=yes    -0.04251701326222125
+    Attrib LIVER_FIRM=yes    1.9238062967276581
+    Attrib SPLEEN_PALPABLE=yes    0.49202244518418475
+    Attrib SPIDERS=yes    0.3042477432305122
+    Attrib ASCITES=yes    -1.5691236564509334
+    Attrib VARICES=yes    0.11309207467405415
+    Attrib BILIRUBIN    -1.2771894835752107
+    Attrib ALK_PHOSPHATE    4.254823945386575
+    Attrib SGOT    -0.7549293722736149
+    Attrib ALBUMIN    1.7305259488832971
+    Attrib PROTIME    2.6111175129582005
+    Attrib HISTOLOGY=yes    1.6846726188747139
+Sigmoid Node 8
+    Inputs    Weights
+    Threshold    -0.5107391377261687
+    Attrib AGE    -1.3076279159120803
+    Attrib SEX=female    -2.0802644779141732
+    Attrib STEROID=yes    -0.2426583790772552
+    Attrib ANTIVIRALS=yes    0.9636803434811434
+    Attrib FATIGUE=yes    -0.47978329771981226
+    Attrib MALAISE=yes    -0.14822376512218396
+    Attrib ANOREXIA=yes    -0.04069360622802353
+    Attrib LIVER_BIG=yes    0.11763321045198157
+    Attrib LIVER_FIRM=yes    1.7974952661995909
+    Attrib SPLEEN_PALPABLE=yes    1.1107935699786404
+    Attrib SPIDERS=yes    0.09010945982057571
+    Attrib ASCITES=yes    -1.2046185497376463
+    Attrib VARICES=yes    0.8369985835016827
+    Attrib BILIRUBIN    -0.9191363049408093
+    Attrib ALK_PHOSPHATE    2.920738466877729
+    Attrib SGOT    -0.5413192064072286
+    Attrib ALBUMIN    1.5036662266071041
+    Attrib PROTIME    2.1614349809598807
+    Attrib HISTOLOGY=yes    0.4410229159592263
+Sigmoid Node 9
+    Inputs    Weights
+    Threshold    -0.30915534464851446
+    Attrib AGE    -2.95828904482203
+    Attrib SEX=female    -2.1642017284979382
+    Attrib STEROID=yes    -0.6510466420838402
+    Attrib ANTIVIRALS=yes    0.31691868653612
+    Attrib FATIGUE=yes    0.19669299156014364
+    Attrib MALAISE=yes    -1.1220120567456784
+    Attrib ANOREXIA=yes    1.7978373208390324
+    Attrib LIVER_BIG=yes    -0.7932488483383653
+    Attrib LIVER_FIRM=yes    0.9469738884537897
+    Attrib SPLEEN_PALPABLE=yes    -0.5729532312150049
+    Attrib SPIDERS=yes    0.12774514210877902
+    Attrib ASCITES=yes    -1.7485759900036797
+    Attrib VARICES=yes    -0.7329224131006232
+    Attrib BILIRUBIN    -2.356119528022165
+    Attrib ALK_PHOSPHATE    2.9424875575836587
+    Attrib SGOT    -0.8065060737538475
+    Attrib ALBUMIN    1.3112235047998344
+    Attrib PROTIME    1.0321941054746453
+    Attrib HISTOLOGY=yes    2.109517825291826
+Sigmoid Node 10
+    Inputs    Weights
+    Threshold    0.4543157876961327
+    Attrib AGE    -2.2299101521587086
+    Attrib SEX=female    -1.04000339686989
+    Attrib STEROID=yes    0.16737194299662053
+    Attrib ANTIVIRALS=yes    0.3775410537016364
+    Attrib FATIGUE=yes    -1.2432938433112304
+    Attrib MALAISE=yes    -0.9050656994443742
+    Attrib ANOREXIA=yes    1.6396394030276964
+    Attrib LIVER_BIG=yes    -0.24522756676460458
+    Attrib LIVER_FIRM=yes    0.4999520741168179
+    Attrib SPLEEN_PALPABLE=yes    -0.20525869853265238
+    Attrib SPIDERS=yes    -1.8048542608774603
+    Attrib ASCITES=yes    0.22257331490893636
+    Attrib VARICES=yes    0.018767584051770494
+    Attrib BILIRUBIN    -1.1931389032494688
+    Attrib ALK_PHOSPHATE    -0.9502399821158498
+    Attrib SGOT    0.1448944359145409
+    Attrib ALBUMIN    0.32571466674997446
+    Attrib PROTIME    0.4434325915405068
+    Attrib HISTOLOGY=yes    -1.7105825567203188
+Sigmoid Node 11
+    Inputs    Weights
+    Threshold    0.511234365593678
+    Attrib AGE    -2.34052639125417
+    Attrib SEX=female    -1.597590773077695
+    Attrib STEROID=yes    0.7909186627621647
+    Attrib ANTIVIRALS=yes    0.17025816051803738
+    Attrib FATIGUE=yes    -1.7792464329749367
+    Attrib MALAISE=yes    -0.2680736661878491
+    Attrib ANOREXIA=yes    1.5563456712244805
+    Attrib LIVER_BIG=yes    0.3614364242448804
+    Attrib LIVER_FIRM=yes    -0.3005248895913205
+    Attrib SPLEEN_PALPABLE=yes    0.4148706580176217
+    Attrib SPIDERS=yes    -2.6828810336274937
+    Attrib ASCITES=yes    -0.19182110087572693
+    Attrib VARICES=yes    1.1819363493202721
+    Attrib BILIRUBIN    -0.8852960889243351
+    Attrib ALK_PHOSPHATE    -1.2278574037588723
+    Attrib SGOT    0.1004850009164386
+    Attrib ALBUMIN    -0.11205951296391166
+    Attrib PROTIME    -0.17604701350925095
+    Attrib HISTOLOGY=yes    -3.1283784325119317
+Class DIE
+    Input
+    Node 0
+Class LIVE
+    Input
+    Node 1
+
+
+Time taken to build model: 0.48 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         124               80      %
+Incorrectly Classified Instances        31               20      %
+Kappa statistic                          0.4101
+Mean absolute error                      0.2063
+Root mean squared error                  0.4154
+Relative absolute error                 62.492  %
+Root relative squared error            102.5865 %
+Total Number of Instances              155     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.563    0.138    0.514      0.563    0.537      0.411    0.823     0.531     DIE
+                 0.862    0.438    0.883      0.862    0.872      0.411    0.823     0.930     LIVE
+Weighted Avg.    0.800    0.376    0.807      0.800    0.803      0.411    0.823     0.848     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+  18  14 |   a = DIE
+  17 106 |   b = LIVE
+
