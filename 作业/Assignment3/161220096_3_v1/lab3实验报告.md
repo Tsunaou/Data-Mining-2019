@@ -130,15 +130,60 @@ $||\boldsymbol{\omega}||$是向量$\boldsymbol{\omega}$的模，表示在空间�
 
  理想中的激活函数是阶跃函数，但实际使用中由于阶跃函数不光滑，不连续，一般使用sigmoid或tanh函数：
 
-<div>
-    <img src="images/nn2.png"/>
+<div style="text-align:center">
+    <img src="images/nn2.png" width="40%" />
 </div>
 
+#### 3.4.2 多层前馈神经网络
+
+多层层神经元，即输入层+输出层(M-P神经元),构成感知机。而多层功能神经元相连构成多层前馈神经网络，输入层与输出层之间的神经元，称为隐层：
+
+<div style="text-align:center">
+    <img src="images/nn3.png" width="60%" />
+</div>
+
+如图所示，每层神经元与下一层神经元互连，神经元之间不存在同层连接，也不存在跨层链接，这样的结构称多层前馈神经网络。
+
+#### 3.4.3 误差逆传播
+
+神经网络学习的过程，其实就是根据训练数据，来调整神经元之间的连接权w以及每个功能神经元阈值b的过程。误差逆传播就是其中一种广为人知的训练方法，其核心的思想非常简单，对于训练数据(x，y)，若当前神经网络的输出为Y，则神经网络的权重：
+$$
+w = w + *w， 其中*w = n(y - Y)x
+$$
+从上可以看出，假设训练结果正确，则权重w不会发生改变；假如错误，则会对w进行一定调整，其中n为学习率，对学习速度有影响。多层神经网络从输出层往输入层逆方向传播误差进行权重调整，即误差逆传播算法。
+
+#### 3.4.4 最优解
+
+神经网络的训练过程即是一个参数寻优过程，基于梯度下降求得的可能是局部最优但不一定是全局最优解,所以实际调参过程中，往往需要多次试验，才能得到一个较为满意的模型。
+
+<div style="text-align:center">
+    <img src="images/nn4.png" width="40%" />
+</div>
 
 
 ### 3.5 kNN
 
+kNN(k-nearest neighbor)是一个简单而经典的机器学习分类算法，通过度量”待分类数据”和”类别已知的样本”的距离（通常是欧氏距离）对样本进行分类。 KNN假设数据都分布在欧式的特征空间内，并假设：**空间中距离越近的点属于一类的可能性越大。** 只需要计算每个待分类数据到全部已知类别数据的距离即可。
 
+<div style="text-align:center">
+    <img src="images/knn1.jpg" width="40%" />
+</div>
+
+举例而言，对上图，有正方形和三角形两个已知类，假如中间的圆形我们不知道它到底是三角形还是正方形。如上所述，计算一下它到其他所有点的距离。发现它离旁边的三角形最近，那么我们就把它归为三角形一类。 这里我们把未知点和离它最近的那一个点归为一类。这样的分类器，准确来说叫**最近邻分类器（nearest-neighbor，NN）**。这是KNN的特殊情况，是K=1的情况。
+
+ 那么K近邻，顾名思义，就是要一个未知点参考离它最近的前k个一直类别的点，看在这k个点里面，属于哪个类别的点最多，就认为未知点属于哪一类。还是上面的图，以圆形未知点为圆心，在实线画出的圆中，相当于k=3，也就是选了前三个离得最近的点，其中三角形2个，方形1个，所以未知点归到三角形一类。但是当考虑虚线范围内时，也就是k=5时，我们发现方形3个，三角形2个，所以这个时候未知点归到方形一类了。 
+不同的最近邻个数会导致不同的分类结果，一般来说，我们在实际应用中要根据实际情况和经验确定k的取值。
+
+**算法流程如下：**
+对每一个未知点执行：
+
+1. 计算未知点到所有已知类别点的距离
+2. 按距离排序（升序）
+3. 选取其中前k个与未知点离得最近的点
+4. 统计k个点中各个类别的个数
+5. 上述k个点里类别出现频率最高的作为未知点的类别
+
+<div STYLE="page-break-after: always;"></div> 
 
 ## 4.实验过程与实验结果
 
@@ -202,6 +247,8 @@ $||\boldsymbol{\omega}||$是向量$\boldsymbol{\omega}$的模，表示在空间�
 | 最大值          | 86.09%     | 0.896       | 86.81%     | 0.928     |          |        |
 | 最优算法        | J48        | Naïve Bayes | J48        | J48       |          |        |
 
+<div STYLE="page-break-after: always;"></div> 
+
 #### 4.credit-g 数据集
 
 | 数据规模：21000 | 基础方法    | 基础方法    | Bagging        | Bagging     | 变化量   | 变化量 |
@@ -227,6 +274,8 @@ $||\boldsymbol{\omega}||$是向量$\boldsymbol{\omega}$的模，表示在空间�
 | kNN            | 70.18%      | 0.65        | 71.09%         | 0.725          | 0.91%    | 0.075  |
 | 最大值         | 76.30%      | 0.819       | 76.82%         | 0.822          |          |        |
 | 最优算法       | Naïve Bayes | Naïve Bayes | Neural Network | Neural Network |          |        |
+
+<div STYLE="page-break-after: always;"></div> 
 
 #### 6.hepatitis 数据集
 
@@ -254,6 +303,8 @@ $||\boldsymbol{\omega}||$是向量$\boldsymbol{\omega}$的模，表示在空间�
 | 最大值          | 94.80%     | 0.954     | 95.11%     | 0.976     |          |        |
 | 最优算法        | J48        | J48       | J48        | J48       |          |        |
 
+<div STYLE="page-break-after: always;"></div> 
+
 #### 8.pc1 数据集
 
 | 数据规模：24398 | 基础方法       | 基础方法 | Bagging    | Bagging   | 变化量   | 变化量 |
@@ -279,6 +330,8 @@ $||\boldsymbol{\omega}||$是向量$\boldsymbol{\omega}$的模，表示在空间�
 | kNN              | 97.29%     | 0.932          | 97.37%     | 0.953     | 0.08%    | 0.021  |
 | 最大值           | 97.46%     | 0.941          | 97.53%     | 0.959     |          |        |
 | 最优算法         | J48        | Neural Network | J48        | J48       |          |        |
+
+<div STYLE="page-break-after: always;"></div> 
 
 #### 10.waveform-5000 数据集
 
@@ -312,6 +365,8 @@ $||\boldsymbol{\omega}||$是向量$\boldsymbol{\omega}$的模，表示在空间�
 | pc1           | Neural Network | kNN            | SVM            | J48            |
 | pc5           | J48            | Neural Network | J48            | J48            |
 | waveform-5000 | SVM            | Neural Network | SVM            | Neural Network |
+
+<div STYLE="page-break-after: always;"></div> 
 
 根据上述结果，可以发现，在10个数据集中，五种方法的最优分布如下
 
@@ -352,6 +407,8 @@ $||\boldsymbol{\omega}||$是向量$\boldsymbol{\omega}$的模，表示在空间�
 | colic         | 23         | 368       | 8464   | J48        | NN      | J48        | NN      |
 | pc5           | 39         | 17186     | 670254 | J48        | NN      | J48        | J48     |
 | waveform-5000 | 41         | 5000      | 205000 | SVM        | NN      | SVM        | NN      |
+
+<div STYLE="page-break-after: always;"></div> 
 
 根据上述表格，不难得到以下结论
 
@@ -510,3 +567,6 @@ Weka中的kNN默认近邻数k值是1，基于上文中的结果，采用LinearNN
 
 [9.零基础学SVM—Support Vector Machine(一)](https://zhuanlan.zhihu.com/p/24638007)
 
+[10.神经网络简单介绍](https://blog.csdn.net/sinat_33741547/article/details/76652611)
+
+[11.KNN算法的原理及简单实现](https://blog.csdn.net/weixin_41988628/article/details/80369850)
