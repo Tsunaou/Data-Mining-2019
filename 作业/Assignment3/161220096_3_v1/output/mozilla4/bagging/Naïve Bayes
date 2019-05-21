@@ -1,0 +1,47 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.bayes.NaiveBayes
+Relation:     mozilla4
+Instances:    15545
+Attributes:   6
+              id
+              start
+              end
+              event
+              size
+              state
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.bayes.NaiveBayes 
+
+Time taken to build model: 0.17 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances       10686               68.7424 %
+Incorrectly Classified Instances      4859               31.2576 %
+Kappa statistic                          0.4036
+Mean absolute error                      0.3272
+Root mean squared error                  0.4612
+Relative absolute error                 74.1611 %
+Root relative squared error             98.1839 %
+Total Number of Instances            15545     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.892    0.413    0.514      0.892    0.652      0.455    0.830     0.674     0
+                 0.587    0.108    0.918      0.587    0.716      0.455    0.830     0.899     1
+Weighted Avg.    0.687    0.208    0.785      0.687    0.695      0.455    0.830     0.825     
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 4557  551 |    a = 0
+ 4308 6129 |    b = 1
+

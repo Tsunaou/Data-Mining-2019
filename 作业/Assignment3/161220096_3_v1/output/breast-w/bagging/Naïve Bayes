@@ -1,0 +1,51 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.bayes.NaiveBayes
+Relation:     wisconsin-breast-cancer
+Instances:    699
+Attributes:   10
+              Clump_Thickness
+              Cell_Size_Uniformity
+              Cell_Shape_Uniformity
+              Marginal_Adhesion
+              Single_Epi_Cell_Size
+              Bare_Nuclei
+              Bland_Chromatin
+              Normal_Nucleoli
+              Mitoses
+              Class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.bayes.NaiveBayes 
+
+Time taken to build model: 0.04 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         670               95.8512 %
+Incorrectly Classified Instances        29                4.1488 %
+Kappa statistic                          0.9097
+Mean absolute error                      0.0407
+Root mean squared error                  0.1955
+Relative absolute error                  9.0068 %
+Root relative squared error             41.1355 %
+Total Number of Instances              699     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.950    0.025    0.986      0.950    0.968      0.911    0.991     0.996     benign
+                 0.975    0.050    0.911      0.975    0.942      0.911    0.987     0.956     malignant
+Weighted Avg.    0.959    0.034    0.960      0.959    0.959      0.911    0.989     0.982     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 435  23 |   a = benign
+   6 235 |   b = malignant
+

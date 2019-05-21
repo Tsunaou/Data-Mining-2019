@@ -1,0 +1,165 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.bayes.NaiveBayes 
+Relation:     credit-rating
+Instances:    690
+Attributes:   16
+              A1
+              A2
+              A3
+              A4
+              A5
+              A6
+              A7
+              A8
+              A9
+              A10
+              A11
+              A12
+              A13
+              A14
+              A15
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Naive Bayes Classifier
+
+                   Class
+Attribute              +         -
+                  (0.45)    (0.55)
+===================================
+A1
+  b                 207.0     263.0
+  a                  99.0     113.0
+  [total]           306.0     376.0
+
+A2
+  mean             33.723   29.8068
+  std. dev.       12.7816   10.9057
+  weight sum          305       373
+  precision        0.1911    0.1911
+
+A3
+  mean             5.9075    3.8409
+  std. dev.        5.4649    4.3316
+  weight sum          307       383
+  precision        0.1308    0.1308
+
+A4
+  u                 257.0     264.0
+  y                  46.0     119.0
+  l                   3.0       1.0
+  t                   1.0       1.0
+  [total]           307.0     385.0
+
+A5
+  g                 257.0     264.0
+  p                  46.0     119.0
+  gg                  3.0       1.0
+  [total]           306.0     384.0
+
+A6
+  c                  63.0      76.0
+  d                   8.0      24.0
+  cc                 30.0      13.0
+  i                  15.0      46.0
+  j                   4.0       8.0
+  k                  15.0      38.0
+  m                  17.0      23.0
+  r                   3.0       2.0
+  q                  52.0      28.0
+  w                  34.0      32.0
+  x                  33.0       7.0
+  e                  15.0      12.0
+  aa                 20.0      36.0
+  ff                  8.0      47.0
+  [total]           317.0     392.0
+
+A7
+  v                 170.0     231.0
+  h                  88.0      52.0
+  bb                 26.0      35.0
+  j                   4.0       6.0
+  n                   3.0       3.0
+  z                   7.0       3.0
+  dd                  3.0       5.0
+  ff                  9.0      50.0
+  o                   2.0       2.0
+  [total]           312.0     387.0
+
+A8
+  mean             3.4242    1.2525
+  std. dev.        4.1179    2.1128
+  weight sum          307       383
+  precision        0.2176    0.2176
+
+A9
+  t                 285.0      78.0
+  f                  24.0     307.0
+  [total]           309.0     385.0
+
+A10
+  t                 210.0      87.0
+  f                  99.0     298.0
+  [total]           309.0     385.0
+
+A11
+  mean             4.6823    0.6043
+  std. dev.        6.5274    1.9863
+  weight sum          307       383
+  precision        3.0455    3.0455
+
+A12
+  t                 147.0     171.0
+  f                 162.0     214.0
+  [total]           309.0     385.0
+
+A13
+  g                 288.0     339.0
+  p                   6.0       4.0
+  s                  16.0      43.0
+  [total]           310.0     386.0
+
+A14
+  mean           164.1864  199.7986
+  std. dev.      161.3686  181.3128
+  weight sum          301       376
+  precision       11.8343   11.8343
+
+A15
+  mean          2027.9939  186.8097
+  std. dev.      7655.808  675.6316
+  weight sum          307       383
+  precision        418.41    418.41
+
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         536               77.6812 %
+Incorrectly Classified Instances       154               22.3188 %
+Kappa statistic                          0.534 
+Mean absolute error                      0.2228
+Root mean squared error                  0.4356
+Relative absolute error                 45.0979 %
+Root relative squared error             87.6429 %
+Total Number of Instances              690     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.596    0.078    0.859      0.596    0.704      0.557    0.896     0.861     +
+                 0.922    0.404    0.740      0.922    0.821      0.557    0.896     0.906     -
+Weighted Avg.    0.777    0.259    0.793      0.777    0.769      0.557    0.896     0.886     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 183 124 |   a = +
+  30 353 |   b = -
+

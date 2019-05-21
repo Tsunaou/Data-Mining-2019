@@ -1,0 +1,74 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     horse-colic
+Instances:    368
+Attributes:   23
+              surgery
+              Age
+              rectal_temperature
+              pulse
+              respiratory_rate
+              temp_extremities
+              peripheral_pulse
+              mucous_membranes
+              capillary_refill_time
+              pain
+              peristalsis
+              abdominal_distension
+              nasogastric_tube
+              nasogastric_reflux
+              nasogastric_reflux_PH
+              rectal_examination
+              abdomen
+              packed_cell_volume
+              total_protein
+              abdominocentesis_appearance
+              abdomcentesis_total_protein
+              outcome
+              surgical_lesion
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+surgery = yes: yes (215.17/26.0)
+surgery = no
+|   outcome = lived: no (110.6/13.6)
+|   outcome = died: yes (23.13/7.0)
+|   outcome = euthanized: yes (19.1/6.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	6
+
+
+Time taken to build model: 0.01 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         314               85.3261 %
+Incorrectly Classified Instances        54               14.6739 %
+Kappa statistic                          0.6732
+Mean absolute error                      0.2413
+Root mean squared error                  0.3548
+Relative absolute error                 51.7675 %
+Root relative squared error             73.5013 %
+Total Number of Instances              368     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.935    0.287    0.848      0.935    0.889      0.680    0.813     0.836     yes
+                 0.713    0.065    0.866      0.713    0.782      0.680    0.813     0.705     no
+Weighted Avg.    0.853    0.205    0.854      0.853    0.850      0.680    0.813     0.788     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 217  15 |   a = yes
+  39  97 |   b = no
+

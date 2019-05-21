@@ -1,0 +1,61 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.lazy.IBk -- -K 1 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+Relation:     hepatitis
+Instances:    155
+Attributes:   20
+              AGE
+              SEX
+              STEROID
+              ANTIVIRALS
+              FATIGUE
+              MALAISE
+              ANOREXIA
+              LIVER_BIG
+              LIVER_FIRM
+              SPLEEN_PALPABLE
+              SPIDERS
+              ASCITES
+              VARICES
+              BILIRUBIN
+              ALK_PHOSPHATE
+              SGOT
+              ALBUMIN
+              PROTIME
+              HISTOLOGY
+              Class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.lazy.IBk -K 1 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         126               81.2903 %
+Incorrectly Classified Instances        29               18.7097 %
+Kappa statistic                          0.394 
+Mean absolute error                      0.1899
+Root mean squared error                  0.3627
+Relative absolute error                 57.5258 %
+Root relative squared error             89.5642 %
+Total Number of Instances              155     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.469    0.098    0.556      0.469    0.508      0.396    0.782     0.564     DIE
+                 0.902    0.531    0.867      0.902    0.884      0.396    0.782     0.918     LIVE
+Weighted Avg.    0.813    0.442    0.803      0.813    0.807      0.396    0.782     0.845     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+  15  17 |   a = DIE
+  12 111 |   b = LIVE
+

@@ -1,0 +1,51 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.trees.J48 -- -C 0.25 -M 2
+Relation:     wisconsin-breast-cancer
+Instances:    699
+Attributes:   10
+              Clump_Thickness
+              Cell_Size_Uniformity
+              Cell_Shape_Uniformity
+              Marginal_Adhesion
+              Single_Epi_Cell_Size
+              Bare_Nuclei
+              Bland_Chromatin
+              Normal_Nucleoli
+              Mitoses
+              Class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Time taken to build model: 0.04 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         673               96.2804 %
+Incorrectly Classified Instances        26                3.7196 %
+Kappa statistic                          0.918 
+Mean absolute error                      0.0674
+Root mean squared error                  0.1812
+Relative absolute error                 14.9053 %
+Root relative squared error             38.1164 %
+Total Number of Instances              699     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.967    0.046    0.976      0.967    0.971      0.918    0.985     0.994     benign
+                 0.954    0.033    0.939      0.954    0.947      0.918    0.985     0.947     malignant
+Weighted Avg.    0.963    0.041    0.963      0.963    0.963      0.918    0.985     0.978     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 443  15 |   a = benign
+  11 230 |   b = malignant
+

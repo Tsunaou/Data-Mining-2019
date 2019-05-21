@@ -1,0 +1,61 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.trees.J48 -- -C 0.25 -M 2
+Relation:     hepatitis
+Instances:    155
+Attributes:   20
+              AGE
+              SEX
+              STEROID
+              ANTIVIRALS
+              FATIGUE
+              MALAISE
+              ANOREXIA
+              LIVER_BIG
+              LIVER_FIRM
+              SPLEEN_PALPABLE
+              SPIDERS
+              ASCITES
+              VARICES
+              BILIRUBIN
+              ALK_PHOSPHATE
+              SGOT
+              ALBUMIN
+              PROTIME
+              HISTOLOGY
+              Class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Time taken to build model: 0.13 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         130               83.871  %
+Incorrectly Classified Instances        25               16.129  %
+Kappa statistic                          0.436 
+Mean absolute error                      0.217 
+Root mean squared error                  0.3398
+Relative absolute error                 65.7311 %
+Root relative squared error             83.9043 %
+Total Number of Instances              155     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.438    0.057    0.667      0.438    0.528      0.450    0.865     0.618     DIE
+                 0.943    0.563    0.866      0.943    0.903      0.450    0.865     0.963     LIVE
+Weighted Avg.    0.839    0.458    0.825      0.839    0.825      0.450    0.865     0.892     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+  14  18 |   a = DIE
+   7 116 |   b = LIVE
+

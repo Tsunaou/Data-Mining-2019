@@ -1,0 +1,86 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     hepatitis
+Instances:    155
+Attributes:   20
+              AGE
+              SEX
+              STEROID
+              ANTIVIRALS
+              FATIGUE
+              MALAISE
+              ANOREXIA
+              LIVER_BIG
+              LIVER_FIRM
+              SPLEEN_PALPABLE
+              SPIDERS
+              ASCITES
+              VARICES
+              BILIRUBIN
+              ALK_PHOSPHATE
+              SGOT
+              ALBUMIN
+              PROTIME
+              HISTOLOGY
+              Class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+ASCITES = no
+|   SPIDERS = no: LIVE (96.1/5.62)
+|   SPIDERS = yes
+|   |   SEX = male: LIVE (6.25)
+|   |   SEX = female
+|   |   |   LIVER_FIRM = no
+|   |   |   |   AGE <= 40: LIVE (4.15/1.0)
+|   |   |   |   AGE > 40: DIE (5.45/0.07)
+|   |   |   LIVER_FIRM = yes
+|   |   |   |   SGOT <= 101: LIVE (11.63/0.36)
+|   |   |   |   SGOT > 101
+|   |   |   |   |   LIVER_BIG = no: DIE (3.23/0.08)
+|   |   |   |   |   LIVER_BIG = yes: LIVE (7.54/2.36)
+ASCITES = yes
+|   ALBUMIN <= 2.8: DIE (9.19/0.06)
+|   ALBUMIN > 2.8
+|   |   LIVER_FIRM = no
+|   |   |   ALBUMIN <= 2.9: LIVE (2.15)
+|   |   |   ALBUMIN > 2.9: DIE (6.81/2.03)
+|   |   LIVER_FIRM = yes: LIVE (2.51/0.22)
+
+Number of Leaves  : 	11
+
+Size of the tree : 	21
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         130               83.871  %
+Incorrectly Classified Instances        25               16.129  %
+Kappa statistic                          0.436 
+Mean absolute error                      0.2029
+Root mean squared error                  0.363 
+Relative absolute error                 61.4384 %
+Root relative squared error             89.6358 %
+Total Number of Instances              155     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.438    0.057    0.667      0.438    0.528      0.450    0.708     0.585     DIE
+                 0.943    0.563    0.866      0.943    0.903      0.450    0.708     0.856     LIVE
+Weighted Avg.    0.839    0.458    0.825      0.839    0.825      0.450    0.708     0.800     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+  14  18 |   a = DIE
+   7 116 |   b = LIVE
+

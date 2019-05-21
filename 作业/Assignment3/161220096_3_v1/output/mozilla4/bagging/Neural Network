@@ -1,0 +1,47 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.functions.MultilayerPerceptron -- -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+Relation:     mozilla4
+Instances:    15545
+Attributes:   6
+              id
+              start
+              end
+              event
+              size
+              state
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+
+Time taken to build model: 120.11 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances       14190               91.2834 %
+Incorrectly Classified Instances      1355                8.7166 %
+Kappa statistic                          0.7981
+Mean absolute error                      0.1481
+Root mean squared error                  0.2674
+Relative absolute error                 33.564  %
+Root relative squared error             56.9284 %
+Total Number of Instances            15545     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.826    0.044    0.901      0.826    0.862      0.800    0.945     0.918     0
+                 0.956    0.174    0.918      0.956    0.936      0.800    0.945     0.965     1
+Weighted Avg.    0.913    0.132    0.912      0.913    0.912      0.800    0.945     0.950     
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 4217  891 |    a = 0
+  464 9973 |    b = 1
+

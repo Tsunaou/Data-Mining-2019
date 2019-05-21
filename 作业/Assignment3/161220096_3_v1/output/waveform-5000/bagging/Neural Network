@@ -1,0 +1,84 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.bayes.NaiveBayes
+Relation:     waveform
+Instances:    5000
+Attributes:   41
+              x1
+              x2
+              x3
+              x4
+              x5
+              x6
+              x7
+              x8
+              x9
+              x10
+              x11
+              x12
+              x13
+              x14
+              x15
+              x16
+              x17
+              x18
+              x19
+              x20
+              x21
+              x22
+              x23
+              x24
+              x25
+              x26
+              x27
+              x28
+              x29
+              x30
+              x31
+              x32
+              x33
+              x34
+              x35
+              x36
+              x37
+              x38
+              x39
+              x40
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.bayes.NaiveBayes 
+
+Time taken to build model: 0.41 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        3999               79.98   %
+Incorrectly Classified Instances      1001               20.02   %
+Kappa statistic                          0.7002
+Mean absolute error                      0.1358
+Root mean squared error                  0.3362
+Relative absolute error                 30.5465 %
+Root relative squared error             71.3307 %
+Total Number of Instances             5000     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.526    0.005    0.981      0.526    0.685      0.640    0.941     0.911     0
+                 0.936    0.145    0.761      0.936    0.839      0.757    0.966     0.931     1
+                 0.944    0.149    0.758      0.944    0.841      0.760    0.962     0.915     2
+Weighted Avg.    0.800    0.099    0.835      0.800    0.788      0.718    0.956     0.919     
+
+=== Confusion Matrix ===
+
+    a    b    c   <-- classified as
+  890  395  407 |    a = 0
+   15 1547   91 |    b = 1
+    2   91 1562 |    c = 2
+

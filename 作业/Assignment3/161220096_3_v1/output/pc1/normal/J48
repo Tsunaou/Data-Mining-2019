@@ -1,0 +1,114 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     PC1
+Instances:    1109
+Attributes:   22
+              loc
+              v(g)
+              ev(g)
+              iv(G)
+              N
+              V
+              L
+              D
+              I
+              E
+              B
+              T
+              lOCode
+              lOComment
+              locCodeAndComment
+              lOBlank
+              uniq_Op
+              uniq_Opnd
+              total_Op
+              total_Opnd
+              branchCount
+              defects
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+lOComment <= 31
+|   lOBlank <= 6
+|   |   L <= 0.42: false (697.0/9.0)
+|   |   L > 0.42
+|   |   |   uniq_Opnd <= 4: false (42.0/1.0)
+|   |   |   uniq_Opnd > 4
+|   |   |   |   lOBlank <= 0: true (8.0)
+|   |   |   |   lOBlank > 0: false (5.0)
+|   lOBlank > 6
+|   |   locCodeAndComment <= 0
+|   |   |   lOComment <= 1
+|   |   |   |   E <= 6345.71
+|   |   |   |   |   L <= 0.1: false (15.0)
+|   |   |   |   |   L > 0.1
+|   |   |   |   |   |   uniq_Op <= 12: false (18.0/4.0)
+|   |   |   |   |   |   uniq_Op > 12: true (3.0)
+|   |   |   |   E > 6345.71
+|   |   |   |   |   D <= 13.73: true (4.0)
+|   |   |   |   |   D > 13.73: false (17.0/2.0)
+|   |   |   lOComment > 1: false (143.0/7.0)
+|   |   locCodeAndComment > 0
+|   |   |   uniq_Op <= 28
+|   |   |   |   locCodeAndComment <= 9
+|   |   |   |   |   I <= 27.6: false (19.0)
+|   |   |   |   |   I > 27.6
+|   |   |   |   |   |   lOBlank <= 12
+|   |   |   |   |   |   |   lOComment <= 9
+|   |   |   |   |   |   |   |   lOComment <= 0: false (7.0)
+|   |   |   |   |   |   |   |   lOComment > 0
+|   |   |   |   |   |   |   |   |   locCodeAndComment <= 4: true (13.0/2.0)
+|   |   |   |   |   |   |   |   |   locCodeAndComment > 4
+|   |   |   |   |   |   |   |   |   |   v(g) <= 3: false (2.0)
+|   |   |   |   |   |   |   |   |   |   v(g) > 3: true (3.0/1.0)
+|   |   |   |   |   |   |   lOComment > 9: false (10.0/1.0)
+|   |   |   |   |   |   lOBlank > 12: false (41.0/4.0)
+|   |   |   |   locCodeAndComment > 9
+|   |   |   |   |   L <= 0.04: true (4.0)
+|   |   |   |   |   L > 0.04: false (4.0/1.0)
+|   |   |   uniq_Op > 28: false (21.0)
+lOComment > 31
+|   uniq_Op <= 27
+|   |   locCodeAndComment <= 17
+|   |   |   lOComment <= 60: false (16.0/1.0)
+|   |   |   lOComment > 60: true (2.0)
+|   |   locCodeAndComment > 17: true (2.0)
+|   uniq_Op > 27: true (13.0/2.0)
+
+Number of Leaves  : 	24
+
+Size of the tree : 	47
+
+
+Time taken to build model: 0.02 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        1035               93.3273 %
+Incorrectly Classified Instances        74                6.6727 %
+Kappa statistic                          0.298 
+Mean absolute error                      0.1052
+Root mean squared error                  0.2441
+Relative absolute error                 80.9461 %
+Root relative squared error             96.0121 %
+Total Number of Instances             1109     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.985    0.766    0.945      0.985    0.965      0.328    0.668     0.949     false
+                 0.234    0.015    0.545      0.234    0.327      0.328    0.668     0.269     true
+Weighted Avg.    0.933    0.714    0.917      0.933    0.921      0.328    0.668     0.901     
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 1017   15 |    a = false
+   59   18 |    b = true
+

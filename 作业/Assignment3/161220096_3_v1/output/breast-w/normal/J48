@@ -1,0 +1,82 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     wisconsin-breast-cancer
+Instances:    699
+Attributes:   10
+              Clump_Thickness
+              Cell_Size_Uniformity
+              Cell_Shape_Uniformity
+              Marginal_Adhesion
+              Single_Epi_Cell_Size
+              Bare_Nuclei
+              Bland_Chromatin
+              Normal_Nucleoli
+              Mitoses
+              Class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+Cell_Size_Uniformity <= 2
+|   Bare_Nuclei <= 3: benign (405.39/2.0)
+|   Bare_Nuclei > 3
+|   |   Clump_Thickness <= 3: benign (11.55)
+|   |   Clump_Thickness > 3
+|   |   |   Bland_Chromatin <= 2
+|   |   |   |   Marginal_Adhesion <= 3: malignant (2.0)
+|   |   |   |   Marginal_Adhesion > 3: benign (2.0)
+|   |   |   Bland_Chromatin > 2: malignant (8.06/0.06)
+Cell_Size_Uniformity > 2
+|   Cell_Shape_Uniformity <= 2
+|   |   Clump_Thickness <= 5: benign (19.0/1.0)
+|   |   Clump_Thickness > 5: malignant (4.0)
+|   Cell_Shape_Uniformity > 2
+|   |   Cell_Size_Uniformity <= 4
+|   |   |   Bare_Nuclei <= 2
+|   |   |   |   Marginal_Adhesion <= 3: benign (11.41/1.21)
+|   |   |   |   Marginal_Adhesion > 3: malignant (3.0)
+|   |   |   Bare_Nuclei > 2
+|   |   |   |   Clump_Thickness <= 6
+|   |   |   |   |   Cell_Size_Uniformity <= 3: malignant (13.0/2.0)
+|   |   |   |   |   Cell_Size_Uniformity > 3
+|   |   |   |   |   |   Marginal_Adhesion <= 5: benign (5.79/1.0)
+|   |   |   |   |   |   Marginal_Adhesion > 5: malignant (5.0)
+|   |   |   |   Clump_Thickness > 6: malignant (31.79/1.0)
+|   |   Cell_Size_Uniformity > 4: malignant (177.0/5.0)
+
+Number of Leaves  : 	14
+
+Size of the tree : 	27
+
+
+Time taken to build model: 0.07 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         661               94.5637 %
+Incorrectly Classified Instances        38                5.4363 %
+Kappa statistic                          0.8799
+Mean absolute error                      0.0694
+Root mean squared error                  0.2229
+Relative absolute error                 15.352  %
+Root relative squared error             46.8927 %
+Total Number of Instances              699     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.956    0.075    0.961      0.956    0.958      0.880    0.955     0.955     benign
+                 0.925    0.044    0.918      0.925    0.921      0.880    0.955     0.902     malignant
+Weighted Avg.    0.946    0.064    0.946      0.946    0.946      0.880    0.955     0.937     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 438  20 |   a = benign
+  18 223 |   b = malignant
+

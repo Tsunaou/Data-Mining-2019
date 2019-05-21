@@ -1,0 +1,51 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.lazy.IBk -K 1 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+Relation:     wisconsin-breast-cancer
+Instances:    699
+Attributes:   10
+              Clump_Thickness
+              Cell_Size_Uniformity
+              Cell_Shape_Uniformity
+              Marginal_Adhesion
+              Single_Epi_Cell_Size
+              Bare_Nuclei
+              Bland_Chromatin
+              Normal_Nucleoli
+              Mitoses
+              Class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+IB1 instance-based classifier
+using 1 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         665               95.1359 %
+Incorrectly Classified Instances        34                4.8641 %
+Kappa statistic                          0.8919
+Mean absolute error                      0.0466
+Root mean squared error                  0.2103
+Relative absolute error                 10.3046 %
+Root relative squared error             44.2421 %
+Total Number of Instances              699     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.967    0.079    0.959      0.967    0.963      0.892    0.973     0.983     benign
+                 0.921    0.033    0.937      0.921    0.929      0.892    0.973     0.915     malignant
+Weighted Avg.    0.951    0.063    0.951      0.951    0.951      0.892    0.973     0.959     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 443  15 |   a = benign
+  19 222 |   b = malignant
+

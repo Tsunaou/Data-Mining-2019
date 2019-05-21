@@ -1,0 +1,51 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.lazy.IBk -- -K 1 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+Relation:     wisconsin-breast-cancer
+Instances:    699
+Attributes:   10
+              Clump_Thickness
+              Cell_Size_Uniformity
+              Cell_Shape_Uniformity
+              Marginal_Adhesion
+              Single_Epi_Cell_Size
+              Bare_Nuclei
+              Bland_Chromatin
+              Normal_Nucleoli
+              Mitoses
+              Class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.lazy.IBk -K 1 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+
+Time taken to build model: 0.01 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         670               95.8512 %
+Incorrectly Classified Instances        29                4.1488 %
+Kappa statistic                          0.9083
+Mean absolute error                      0.0446
+Root mean squared error                  0.1765
+Relative absolute error                  9.8621 %
+Root relative squared error             37.1246 %
+Total Number of Instances              699     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.967    0.058    0.969      0.967    0.968      0.908    0.987     0.995     benign
+                 0.942    0.033    0.938      0.942    0.940      0.908    0.987     0.963     malignant
+Weighted Avg.    0.959    0.049    0.959      0.959    0.959      0.908    0.987     0.984     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 443  15 |   a = benign
+  14 227 |   b = malignant
+

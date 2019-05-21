@@ -1,0 +1,50 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.Bagging -P 100 -S 1 -num-slots 1 -I 10 -W weka.classifiers.functions.MultilayerPerceptron -- -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+Relation:     pima_diabetes
+Instances:    768
+Attributes:   9
+              preg
+              plas
+              pres
+              skin
+              insu
+              mass
+              pedi
+              age
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bagging with 10 iterations and base learner
+
+weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+
+Time taken to build model: 8.02 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         590               76.8229 %
+Incorrectly Classified Instances       178               23.1771 %
+Kappa statistic                          0.4782
+Mean absolute error                      0.2868
+Root mean squared error                  0.4078
+Relative absolute error                 63.1031 %
+Root relative squared error             85.553  %
+Total Number of Instances              768     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.848    0.381    0.806      0.848    0.827      0.480    0.822     0.895     tested_negative
+                 0.619    0.152    0.686      0.619    0.651      0.480    0.822     0.692     tested_positive
+Weighted Avg.    0.768    0.301    0.764      0.768    0.765      0.480    0.822     0.824     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 424  76 |   a = tested_negative
+ 102 166 |   b = tested_positive
+
